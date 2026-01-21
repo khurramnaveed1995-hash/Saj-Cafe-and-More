@@ -64,6 +64,20 @@
             filter: none;
             transition: 0.5s;
         }
+
+        /* Form Input Style */
+        .form-input {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            width: 100%;
+            outline: none;
+        }
+        .form-input:focus {
+            border-color: #FFD700;
+        }
     </style>
 </head>
 <body class="bg-brand-dark text-white">
@@ -86,6 +100,7 @@
                 <a href="#home" class="hover:text-brand-gold transition">Home</a>
                 <a href="#menu" class="hover:text-brand-gold transition">Menu</a>
                 <a href="#deals" class="hover:text-brand-gold transition">Deals</a>
+                <a href="#complain" class="hover:text-brand-gold transition">Complain</a>
                 <a href="#contact" class="hover:text-brand-gold transition">Contact</a>
             </div>
 
@@ -171,8 +186,8 @@
     </section>
 
     <!-- Deals Section -->
-    <section id="deals" class="py-20 bg-black">
-        <div class="container mx-auto px-4 text-center">
+    <section id="deals" class="py-20 bg-black text-center">
+        <div class="container mx-auto px-4">
             <h2 class="heading-font text-4xl font-bold mb-12">Hot <span class="text-brand-gold">Deals</span></h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-brand-gray border border-brand-gold rounded-3xl p-2">
@@ -191,9 +206,38 @@
         </div>
     </section>
 
+    <!-- Complain Section -->
+    <section id="complain" class="py-20 bg-brand-dark">
+        <div class="container mx-auto px-4 max-w-2xl">
+            <div class="text-center mb-10">
+                <h2 class="heading-font text-4xl font-bold">Lodge A <span class="text-brand-gold">Complain</span></h2>
+                <p class="text-gray-400 mt-2">Your feedback helps us improve our service.</p>
+                <div class="w-20 h-1 bg-brand-gold mx-auto mt-4"></div>
+            </div>
+            
+            <form onsubmit="sendComplain(event)" class="bg-brand-gray p-8 rounded-3xl border border-gray-800 shadow-xl">
+                <div class="mb-5">
+                    <label class="block text-sm font-bold mb-2 text-brand-gold">Full Name</label>
+                    <input type="text" id="compName" placeholder="Enter your name" class="form-input" required>
+                </div>
+                <div class="mb-5">
+                    <label class="block text-sm font-bold mb-2 text-brand-gold">Phone Number</label>
+                    <input type="tel" id="compPhone" placeholder="03XXXXXXXXX" class="form-input" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-bold mb-2 text-brand-gold">Write Your Complain</label>
+                    <textarea id="compMessage" rows="4" placeholder="Describe your issue..." class="form-input" required></textarea>
+                </div>
+                <button type="submit" class="w-full bg-brand-gold text-black font-bold py-3 rounded-lg hover:bg-yellow-400 transition transform hover:scale-[1.02]">
+                    <i class="fas fa-paper-plane mr-2"></i> Submit Complain
+                </button>
+            </form>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer id="contact" class="bg-brand-gray pt-16 border-t border-gray-800">
-        <div class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-4 gap-10 pb-12">
+        <div class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-4 gap-10 pb-12 text-center md:text-left">
             <!-- Col 1: Logo -->
             <div>
                 <img src="Saj logo.jpg" class="h-20 w-20 rounded-full mb-4 mx-auto md:mx-0 border-2 border-brand-gold">
@@ -204,33 +248,33 @@
             <!-- Col 2: Contact Info -->
             <div>
                 <h3 class="text-xl font-bold mb-6 text-brand-gold">Contact Us</h3>
-                <p class="text-gray-400 mb-4 flex items-start gap-3">
+                <p class="text-gray-400 mb-4 flex items-start justify-center md:justify-start gap-3">
                     <i class="fas fa-map-marker-alt text-brand-gold mt-1"></i>
                     Qaboola Road, Opposite Haider Family Hospital, Arifwala
                 </p>
-                <p class="text-gray-400 mb-4 flex items-center gap-3 text-lg font-bold">
+                <p class="text-gray-400 mb-4 flex items-center justify-center md:justify-start gap-3 text-lg font-bold">
                     <i class="fas fa-phone text-brand-gold"></i>
                     +92 322 2222677
                 </p>
             </div>
 
-            <!-- Col 3: Social Media Links -->
+            <!-- Col 3: Social Links -->
             <div>
                 <h3 class="text-xl font-bold mb-6 text-brand-gold">Follow Us</h3>
                 <div class="flex flex-col gap-4">
-                    <a href="https://www.facebook.com/SajCafeAndMore/" target="_blank" class="flex items-center gap-3 text-gray-400 hover:text-brand-gold transition">
+                    <a href="https://www.facebook.com/SajCafeAndMore/" target="_blank" class="flex items-center justify-center md:justify-start gap-3 text-gray-400 hover:text-brand-gold transition">
                         <i class="fab fa-facebook text-2xl"></i> Facebook
                     </a>
-                    <a href="https://www.instagram.com/explore/locations/1023677682/saj-cafe-arifwala/" target="_blank" class="flex items-center gap-3 text-gray-400 hover:text-brand-gold transition">
+                    <a href="https://www.instagram.com/explore/locations/1023677682/saj-cafe-arifwala/" target="_blank" class="flex items-center justify-center md:justify-start gap-3 text-gray-400 hover:text-brand-gold transition">
                         <i class="fab fa-instagram text-2xl"></i> Instagram
                     </a>
-                    <a href="https://www.tiktok.com/search?q=saj%20cafe%20arifwala" target="_blank" class="flex items-center gap-3 text-gray-400 hover:text-brand-gold transition">
+                    <a href="https://www.tiktok.com/search?q=saj%20cafe%20arifwala" target="_blank" class="flex items-center justify-center md:justify-start gap-3 text-gray-400 hover:text-brand-gold transition">
                         <i class="fab fa-tiktok text-2xl"></i> TikTok
                     </a>
                 </div>
             </div>
 
-            <!-- Col 4: EXACT GOOGLE MAP LOCATION -->
+            <!-- Col 4: Map -->
             <div class="h-64 rounded-xl overflow-hidden border border-gray-700">
                 <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3424.363675005835!2d73.0638575!3d30.2837266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393d4f40f353664d%3A0xc69622d7d5904d9e!2sSaj%20Cafe%20%26%20More!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" 
@@ -273,6 +317,19 @@
                     item.style.display = 'none';
                 }
             });
+        }
+
+        // Send Complain to WhatsApp
+        function sendComplain(e) {
+            e.preventDefault();
+            const name = document.getElementById('compName').value;
+            const phone = document.getElementById('compPhone').value;
+            const message = document.getElementById('compMessage').value;
+            
+            const whatsappMsg = `*COMPLAIN FORM*%0A------------------%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Complain:* ${message}`;
+            const whatsappUrl = `https://wa.me/923222222677?text=${whatsappMsg}`;
+            
+            window.open(whatsappUrl, '_blank');
         }
     </script>
 </body>
