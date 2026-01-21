@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -56,11 +55,20 @@
         #imageModal.hidden { display: none; }
         #imageModal { display: flex; animation: fadeIn 0.3s ease; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Map Style */
+        .google-map {
+            filter: grayscale(100%) invert(90%) contrast(90%);
+        }
+        .google-map:hover {
+            filter: none;
+            transition: 0.5s;
+        }
     </style>
 </head>
 <body class="bg-brand-dark text-white">
 
-    <!-- IMAGE MODAL (Full Screen View) -->
+    <!-- IMAGE MODAL (Bari image dekhne k liye) -->
     <div id="imageModal" class="fixed inset-0 z-[100] hidden bg-black/95 items-center justify-center p-4 backdrop-blur-sm" onclick="closeModal()">
         <button class="absolute top-6 right-6 text-white text-4xl hover:text-brand-gold transition">&times;</button>
         <img id="fullImage" src="" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl border border-gray-700 transition-transform duration-300" onclick="event.stopPropagation()">
@@ -118,92 +126,46 @@
 
             <!-- Menu Grid -->
             <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <!-- Items with onclick to open full image -->
+                <!-- Items -->
                 <div class="menu-item karahi bg-brand-gray rounded-2xl overflow-hidden menu-card">
                     <img src="chcken karachi.jpg" onclick="openModal(this.src)" class="w-full h-52 object-cover cursor-pointer hover:opacity-80 transition" alt="Chicken Karahi">
-                    <div class="p-5 text-center">
-                        <h3 class="font-bold text-xl">Chicken Karahi</h3>
-                    </div>
-                </div>
-
-                <div class="menu-item karahi bg-brand-gray rounded-2xl overflow-hidden menu-card">
-                    <img src="BBQ Wings.jpg" onclick="openModal(this.src)" class="w-full h-52 object-cover cursor-pointer hover:opacity-80 transition" alt="BBQ Wings">
-                    <div class="p-5 text-center">
-                        <h3 class="font-bold text-xl">BBQ Wings</h3>
-                    </div>
-                </div>
-
-                <div class="menu-item karahi bg-brand-gray rounded-2xl overflow-hidden menu-card">
-                    <img src="fish platter.jpg" onclick="openModal(this.src)" class="w-full h-52 object-cover cursor-pointer hover:opacity-80 transition" alt="Fish Platter">
-                    <div class="p-5 text-center">
-                        <h3 class="font-bold text-xl">Fish Platter</h3>
-                    </div>
+                    <div class="p-5 text-center"><h3 class="font-bold text-xl">Chicken Karahi</h3></div>
                 </div>
 
                 <div class="menu-item burgers bg-brand-gray rounded-2xl overflow-hidden menu-card">
                     <img src="smoke burger.jpg" onclick="openModal(this.src)" class="w-full h-52 object-cover cursor-pointer hover:opacity-80 transition" alt="Smoke Burger">
-                    <div class="p-5 text-center">
-                        <h3 class="font-bold text-xl">Smoke Burger</h3>
-                    </div>
-                </div>
-
-                <div class="menu-item burgers bg-brand-gray rounded-2xl overflow-hidden menu-card">
-                    <img src="lava burger.jpg" onclick="openModal(this.src)" class="w-full h-52 object-cover cursor-pointer hover:opacity-80 transition" alt="Lava Burger">
-                    <div class="p-5 text-center">
-                        <h3 class="font-bold text-xl">Lava Burger</h3>
-                    </div>
-                </div>
-
-                <div class="menu-item burgers bg-brand-gray rounded-2xl overflow-hidden menu-card">
-                    <img src="Rich gill burger.jpg" onclick="openModal(this.src)" class="w-full h-52 object-cover cursor-pointer hover:opacity-80 transition" alt="Rich Gill Burger">
-                    <div class="p-5 text-center">
-                        <h3 class="font-bold text-xl">Rich Gill Burger</h3>
-                    </div>
-                </div>
-
-                <div class="menu-item burgers bg-brand-gray rounded-2xl overflow-hidden menu-card">
-                    <img src="jalapeno shawarma.jpg" onclick="openModal(this.src)" class="w-full h-52 object-cover cursor-pointer hover:opacity-80 transition" alt="Jalapeno Shawarma">
-                    <div class="p-5 text-center">
-                        <h3 class="font-bold text-xl">Jalapeno Shawarma</h3>
-                    </div>
-                </div>
-
-                <div class="menu-item burgers bg-brand-gray rounded-2xl overflow-hidden menu-card">
-                    <img src="BBQ Wrap.jpg" onclick="openModal(this.src)" class="w-full h-52 object-cover cursor-pointer hover:opacity-80 transition" alt="BBQ Wrap">
-                    <div class="p-5 text-center">
-                        <h3 class="font-bold text-xl">BBQ Wrap</h3>
-                    </div>
-                </div>
-
-                <div class="menu-item pizza bg-brand-gray rounded-2xl overflow-hidden menu-card">
-                    <img src="behari kabab pizza.jpg" onclick="openModal(this.src)" class="w-full h-52 object-cover cursor-pointer hover:opacity-80 transition" alt="Behari Kabab Pizza">
-                    <div class="p-5 text-center">
-                        <h3 class="font-bold text-xl">Behari Kabab Pizza</h3>
-                    </div>
+                    <div class="p-5 text-center"><h3 class="font-bold text-xl">Smoke Burger</h3></div>
                 </div>
 
                 <div class="menu-item pizza bg-brand-gray rounded-2xl overflow-hidden menu-card">
                     <img src="Alfredo pasta.jpg" onclick="openModal(this.src)" class="w-full h-52 object-cover cursor-pointer hover:opacity-80 transition" alt="Alfredo Pasta">
-                    <div class="p-5 text-center">
-                        <h3 class="font-bold text-xl">Alfredo Pasta</h3>
-                    </div>
+                    <div class="p-5 text-center"><h3 class="font-bold text-xl">Alfredo Pasta</h3></div>
                 </div>
 
-                <div class="menu-item pizza bg-brand-gray rounded-2xl overflow-hidden menu-card">
-                    <img src="lasanga pasta.jpg" onclick="openModal(this.src)" class="w-full h-52 object-cover cursor-pointer hover:opacity-80 transition" alt="Lasagna">
-                    <div class="p-5 text-center">
-                        <h3 class="font-bold text-xl">Lasagna Pasta</h3>
-                    </div>
+                <div class="menu-item burgers bg-brand-gray rounded-2xl overflow-hidden menu-card">
+                    <img src="lava burger.jpg" onclick="openModal(this.src)" class="w-full h-52 object-cover cursor-pointer hover:opacity-80 transition" alt="Lava Burger">
+                    <div class="p-5 text-center"><h3 class="font-bold text-xl">Lava Burger</h3></div>
+                </div>
+                
+                <div class="menu-item burgers bg-brand-gray rounded-2xl overflow-hidden menu-card">
+                    <img src="jalapeno shawarma.jpg" onclick="openModal(this.src)" class="w-full h-52 object-cover cursor-pointer hover:opacity-80 transition" alt="Jalapeno Shawarma">
+                    <div class="p-5 text-center"><h3 class="font-bold text-xl">Jalapeno Shawarma</h3></div>
+                </div>
+
+                <div class="menu-item karahi bg-brand-gray rounded-2xl overflow-hidden menu-card">
+                    <img src="fish platter.jpg" onclick="openModal(this.src)" class="w-full h-52 object-cover cursor-pointer hover:opacity-80 transition" alt="Fish Platter">
+                    <div class="p-5 text-center"><h3 class="font-bold text-xl">Fish Platter</h3></div>
                 </div>
 
                 <div class="menu-item pizza bg-brand-gray rounded-2xl overflow-hidden menu-card">
                     <img src="pizza fires.jpg" onclick="openModal(this.src)" class="w-full h-52 object-cover cursor-pointer hover:opacity-80 transition" alt="Pizza Fries">
-                    <div class="p-5 text-center">
-                        <h3 class="font-bold text-xl">Pizza Fries</h3>
-                    </div>
+                    <div class="p-5 text-center"><h3 class="font-bold text-xl">Pizza Fries</h3></div>
                 </div>
 
+                <div class="menu-item karahi bg-brand-gray rounded-2xl overflow-hidden menu-card">
+                    <img src="BBQ Wings.jpg" onclick="openModal(this.src)" class="w-full h-52 object-cover cursor-pointer hover:opacity-80 transition" alt="BBQ Wings">
+                    <div class="p-5 text-center"><h3 class="font-bold text-xl">BBQ Wings</h3></div>
+                </div>
             </div>
         </div>
     </section>
@@ -213,82 +175,99 @@
         <div class="container mx-auto px-4 text-center">
             <h2 class="heading-font text-4xl font-bold mb-12">Hot <span class="text-brand-gold">Deals</span></h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
                 <div class="bg-brand-gray border border-brand-gold rounded-3xl p-2">
-                    <img src="wehshi deal.jpg" onclick="openModal(this.src)" class="w-full h-64 object-cover rounded-2xl mb-4 cursor-pointer hover:opacity-80 transition" alt="Wehshi Deal">
+                    <img src="wehshi deal.jpg" onclick="openModal(this.src)" class="w-full h-64 object-cover rounded-2xl mb-4 cursor-pointer" alt="Wehshi Deal">
                     <h3 class="text-2xl font-bold pb-4">Wehshi Deal</h3>
                 </div>
-
                 <div class="bg-brand-gray border border-brand-gold rounded-3xl p-2">
-                    <img src="family deal.jpg" onclick="openModal(this.src)" class="w-full h-64 object-cover rounded-2xl mb-4 cursor-pointer hover:opacity-80 transition" alt="Family Deal">
+                    <img src="family deal.jpg" onclick="openModal(this.src)" class="w-full h-64 object-cover rounded-2xl mb-4 cursor-pointer" alt="Family Deal">
                     <h3 class="text-2xl font-bold pb-4">Family Deal</h3>
                 </div>
-
                 <div class="bg-brand-gray border border-brand-gold rounded-3xl p-2">
-                    <img src="zingo deal.jpg" onclick="openModal(this.src)" class="w-full h-64 object-cover rounded-2xl mb-4 cursor-pointer hover:opacity-80 transition" alt="Zingo Deal">
+                    <img src="zingo deal.jpg" onclick="openModal(this.src)" class="w-full h-64 object-cover rounded-2xl mb-4 cursor-pointer" alt="Zingo Deal">
                     <h3 class="text-2xl font-bold pb-4">Zingo Deal</h3>
                 </div>
-
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact" class="bg-brand-gray py-12 border-t border-gray-800">
-        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10">
+    <footer id="contact" class="bg-brand-gray pt-16 border-t border-gray-800">
+        <div class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-4 gap-10 pb-12">
+            <!-- Col 1: Logo -->
             <div>
-                <img src="Saj logo.jpg" class="h-20 w-20 rounded-full mb-4 mx-auto md:mx-0">
+                <img src="Saj logo.jpg" class="h-20 w-20 rounded-full mb-4 mx-auto md:mx-0 border-2 border-brand-gold">
                 <h3 class="text-xl font-bold mb-2 text-brand-gold">Saj Cafe & More</h3>
-                <p class="text-gray-400">Delicious Moments, Memorable Tastes in Arifwala.</p>
+                <p class="text-gray-400 text-sm">Delicious Moments, Memorable Tastes. Best BBQ & Karahi spot in Arifwala.</p>
             </div>
+
+            <!-- Col 2: Contact Info -->
             <div>
-                <h3 class="text-xl font-bold mb-4 text-brand-gold">Contact Info</h3>
-                <p class="text-gray-400 mb-2"><i class="fas fa-map-marker-alt text-brand-gold mr-2"></i> Qaboola Road, Opposite Haider Family Hospital, Arifwala</p>
-                <p class="text-gray-400 mb-2"><i class="fas fa-phone text-brand-gold mr-2"></i> +92 322 2222677</p>
-                <p class="text-gray-400"><i class="fas fa-clock text-brand-gold mr-2"></i> 12:00 PM - 01:00 AM</p>
+                <h3 class="text-xl font-bold mb-6 text-brand-gold">Contact Us</h3>
+                <p class="text-gray-400 mb-4 flex items-start gap-3">
+                    <i class="fas fa-map-marker-alt text-brand-gold mt-1"></i>
+                    Qaboola Road, Opposite Haider Family Hospital, Arifwala
+                </p>
+                <p class="text-gray-400 mb-4 flex items-center gap-3 text-lg font-bold">
+                    <i class="fas fa-phone text-brand-gold"></i>
+                    +92 322 2222677
+                </p>
             </div>
+
+            <!-- Col 3: Social Media Links -->
             <div>
-                <h3 class="text-xl font-bold mb-4 text-brand-gold">Follow Us</h3>
-                <div class="flex gap-4">
-                    <a href="https://www.facebook.com/SajCafeAndMore/" class="text-3xl hover:text-brand-gold transition"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="text-3xl hover:text-brand-gold transition"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-3xl hover:text-brand-gold transition"><i class="fab fa-tiktok"></i></a>
+                <h3 class="text-xl font-bold mb-6 text-brand-gold">Follow Us</h3>
+                <div class="flex flex-col gap-4">
+                    <a href="https://www.facebook.com/SajCafeAndMore/" target="_blank" class="flex items-center gap-3 text-gray-400 hover:text-brand-gold transition">
+                        <i class="fab fa-facebook text-2xl"></i> Facebook
+                    </a>
+                    <a href="https://www.instagram.com/explore/locations/1023677682/saj-cafe-arifwala/" target="_blank" class="flex items-center gap-3 text-gray-400 hover:text-brand-gold transition">
+                        <i class="fab fa-instagram text-2xl"></i> Instagram
+                    </a>
+                    <a href="https://www.tiktok.com/search?q=saj%20cafe%20arifwala" target="_blank" class="flex items-center gap-3 text-gray-400 hover:text-brand-gold transition">
+                        <i class="fab fa-tiktok text-2xl"></i> TikTok
+                    </a>
                 </div>
             </div>
+
+            <!-- Col 4: EXACT GOOGLE MAP LOCATION -->
+            <div class="h-64 rounded-xl overflow-hidden border border-gray-700">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3424.363675005835!2d73.0638575!3d30.2837266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393d4f40f353664d%3A0xc69622d7d5904d9e!2sSaj%20Cafe%20%26%20More!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" 
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" class="google-map">
+                </iframe>
+            </div>
         </div>
-        <div class="text-center mt-12 text-gray-600 text-sm">
+        
+        <div class="text-center py-6 border-t border-gray-800 text-gray-600 text-sm bg-black">
             &copy; 2024 Saj Cafe & More Arifwala.
         </div>
     </footer>
 
     <script>
-        // Modal Functions
+        // Modal Control
         function openModal(src) {
             const modal = document.getElementById('imageModal');
             const fullImg = document.getElementById('fullImage');
             fullImg.src = src;
             modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // Stop scrolling
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
             const modal = document.getElementById('imageModal');
             modal.classList.add('hidden');
-            document.body.style.overflow = 'auto'; // Enable scrolling
+            document.body.style.overflow = 'auto';
         }
 
         // Filter Function
         function filterMenu(category) {
             const items = document.querySelectorAll('.menu-item');
             const btns = document.querySelectorAll('.category-btn');
-            
             btns.forEach(btn => btn.classList.remove('active'));
             event.currentTarget.classList.add('active');
-
             items.forEach(item => {
-                if(category === 'all') {
-                    item.style.display = 'block';
-                } else if(item.classList.contains(category)) {
+                if(category === 'all' || item.classList.contains(category)) {
                     item.style.display = 'block';
                 } else {
                     item.style.display = 'none';
