@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Saj Cafe & More | Best Restaurant in Arifwala offering Delicious BBQ, Karahi, Fast Food and more.">
+    <meta name="keywords" content="Saj Cafe Arifwala, BBQ Arifwala, Karahi, Fast Food, Restaurant in Arifwala">
+    <title>Saj Cafe & More | Best Restaurant in Arifwala</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (For Modern Styling) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Config for Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-gold': '#d4af37',
+                        'brand-dark': '#1a1a1a',
+                        'brand-red': '#b91c1c',
+                        'brand-gray': '#2d2d2d'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Internal CSS for Custom Animations and Overrides -->
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d4af37;
+            border-radius: 5px;
+        }
+
+        /* Hero Image Overlay */
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1544025162-d76690b68f6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Card Hover Effects */
+        .menu-card {
+            transition: all 0.3s ease;
+        }
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(212, 175, 55, 0.15), 0 10px 10px -5px rgba(212, 175, 55, 0.1);
+        }
+
+        /* Nav Link Animation */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #d4af37;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Sticky Navbar Glass Effect */
+        .sticky-nav {
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200 font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 bg-transparent">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="text-2xl md:text-3xl font-heading font-bold text-white">
+                Saj <span class="text-brand-gold">Cafe</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-white hover:text-brand-gold font-medium">Home</a>
+                <a href="#about" class="nav-link text-white hover:text-brand-gold font-medium">About Us</a>
+                <a href="#menu" class="nav-link text-white hover:text-brand-gold font-medium">Menu</a>
+                <a href="#reviews" class="nav-link text-white hover:text-brand-gold font-medium">Reviews</a>
+                <a href="#contact" class="nav-link text-white hover:text-brand-gold font-medium">Contact</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-btn" class="text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-dark absolute w-full left-0 top-full border-t border-gray-800">
+            <div class="flex flex-col p-4 space-y-4 text-center">
+                <a href="#home" class="mobile-link text-white hover:text-brand-gold">Home</a>
+                <a href="#about" class="mobile-link text-white hover:text-brand-gold">About Us</a>
+                <a href="#menu" class="mobile-link text-white hover:text-brand-gold">Menu</a>
+                <a href="#reviews" class="mobile-link text-white hover:text-brand-gold">Reviews</a>
+                <a href="#contact" class="mobile-link text-white hover:text-brand-gold">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg h-screen flex items-center justify-center text-center px-4 pt-16">
+        <div class="max-w-4xl mx-auto" data-aos="fade-up">
+            <h2 class="text-brand-gold font-bold text-lg md:text-xl tracking-widest uppercase mb-4 animate-pulse">Welcome to</h2>
+            <h1 class="text-5xl md:text-7xl font-heading font-bold text-white mb-6 leading-tight">
+                Saj Cafe & More <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-yellow-200">Arifwala</span>
+            </h1>
+            <p class="text-gray-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+                Delicious BBQ, Karahi & Fast Food. Experience the authentic smoky flavors and cozy ambiance.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#menu" class="px-8 py-3 bg-brand-gold text-brand-dark font-bold rounded-full hover:bg-yellow-400 transition transform hover:scale-105">
+                    <i class="fas fa-utensils mr-2"></i> View Menu
+                </a>
+                <a href="https://wa.me/923222222677" target="_blank" class="px-8 py-3 border-2 border-brand-gold text-brand-gold font-bold rounded-full hover:bg-brand-gold hover:text-brand-dark transition transform hover:scale-105">
+                    <i class="fab fa-whatsapp mr-2"></i> Order on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-brand-dark">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 relative">
+                    <div class="absolute -top-4 -left-4 w-24 h-24 border-t-4 border-l-4 border-brand-gold opacity-50"></div>
+                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Saj Cafe Interior" class="rounded-lg shadow-2xl w-full h-auto object-cover grayscale hover:grayscale-0 transition duration-500">
+                    <div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-4 border-r-4 border-brand-gold opacity-50"></div>
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-brand-gold font-bold text-xl mb-2">Our Story</h3>
+                    <h2 class="text-4xl font-heading font-bold text-white mb-6">Authentic Taste of Arifwala</h2>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Saj Cafe & More is a popular restaurant in Arifwala known for its BBQ, Karahi, fast food, and traditional Pakistani dishes. Customers love the smoky flavor of our **Koyla Desi Murgh**, **Mutton Karahi**, and **Beef Karahi**.
+                    </p>
+                    <p class="text-gray-400 mb-8 leading-relaxed">
+                        Beyond tradition, we serve crispy Fast Food, grilled fish, pasta, and aromatic Biryani. Whether you crave a cup of strong tea or a full feast, Saj Cafe is your destination.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="flex flex-col text-center">
+                            <span class="text-3xl font-bold text-brand-gold">50+</span>
+                            <span class="text-sm text-gray-400">Dishes</span>
+                        </div>
+                        <div class="w-px h-12 bg-gray-700"></div>
+                        <div class="flex flex-col text-center">
+                            <span class="text-3xl font-bold text-brand-gold">100%</span>
+                            <span class="text-sm text-gray-400">Halal</span>
+                        </div>
+                        <div class="w-px h-12 bg-gray-700"></div>
+                        <div class="flex flex-col text-center">
+                            <span class="text-3xl font-bold text-brand-gold">4.8</span>
+                            <span class="text-sm text-gray-400">Rating</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-brand-gray">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-brand-gold font-bold tracking-wider uppercase">Eat & Drink</span>
+                <h2 class="text-4xl font-heading font-bold text-white mt-2">Popular Menu</h2>
+                <div class="w-24 h-1 bg-brand-gold mx-auto mt-4 rounded"></div>
+            </div>
+
+            <!-- BBQ Category -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-white mb-6 border-l-4 border-brand-gold pl-4">BBQ & Karahi Special</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Item 1 -->
+                    <div class="menu-card bg-brand-dark p-6 rounded-xl border border-gray-800 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 bg-brand-red text-white text-xs font-bold px-3 py-1 rounded-bl-lg">HOT</div>
+                        <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6f58520?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="w-full h-40 object-cover rounded-lg mb-4 group-hover:scale-105 transition duration-300" alt="Karahi">
+                        <h4 class="text-xl font-bold text-white mb-2">Koyla Desi Murgh</h4>
+                        <p class="text-gray-400 text-sm mb-4">Slow-cooked chicken with smoky charcoal flavor.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-brand-gold font-bold text-lg">PKR 1800</span>
+                            <button class="bg-gray-800 text-white w-8 h-8 rounded-full hover:bg-brand-gold hover:text-black transition"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="menu-card bg-brand-dark p-6 rounded-xl border border-gray-800">
+                        <img src="https://images.unsplash.com/photo-1606756613036-7c9809633215?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="w-full h-40 object-cover rounded-lg mb-4" alt="Mutton Karahi">
+                        <h4 class="text-xl font-bold text-white mb-2">Mutton Karahi</h4>
+                        <p class="text-gray-400 text-sm mb-4">Traditional spicy mutton curry.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-brand-gold font-bold text-lg">PKR 2200</span>
+                            <button class="bg-gray-800 text-white w-8 h-8 rounded-full hover:bg-brand-gold hover:text-black transition"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="menu-card bg-brand-dark p-6 rounded-xl border border-gray-800">
+                        <img src="https://images.unsplash.com/photo-1547496502-ffa226447e2f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="w-full h-40 object-cover rounded-lg mb-4" alt="Beef Karahi">
+                        <h4 class="text-xl font-bold text-white mb-2">Beef Karahi</h4>
+                        <p class="text-gray-400 text-sm mb-4">Tender beef cooked in tomato gravy.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-brand-gold font-bold text-lg">PKR 1500</span>
+                            <button class="bg-gray-800 text-white w-8 h-8 rounded-full hover:bg-brand-gold hover:text-black transition"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="menu-card bg-brand-dark p-6 rounded-xl border border-gray-800">
+                        <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="w-full h-40 object-cover rounded-lg mb-4" alt="Malai Boti">
+                        <h4 class="text-xl font-bold text-white mb-2">Malai Boti</h4>
+                        <p class="text-gray-400 text-sm mb-4">Creamy boneless chicken BBQ.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-brand-gold font-bold text-lg">PKR 850</span>
+                            <button class="bg-gray-800 text-white w-8 h-8 rounded-full hover:bg-brand-gold hover:text-black transition"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fast Food Category -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-white mb-6 border-l-4 border-brand-gold pl-4">Fast Food & Deals</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Item 1 -->
+                    <div class="menu-card bg-brand-dark p-6 rounded-xl border border-gray-800">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="w-full h-40 object-cover rounded-lg mb-4" alt="Burger">
+                        <h4 class="text-xl font-bold text-white mb-2">Special Zinger</h4>
+                        <p class="text-gray-400 text-sm mb-4">Crunchy fillet with cheese and sauces.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-brand-gold font-bold text-lg">PKR 450</span>
+                            <button class="bg-gray-800 text-white w-8 h-8 rounded-full hover:bg-brand-gold hover:text-black transition"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="menu-card bg-brand-dark p-6 rounded-xl border border-gray-800">
+                        <img src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="w-full h-40 object-cover rounded-lg mb-4" alt="Shawarma">
+                        <h4 class="text-xl font-bold text-white mb-2">Jalapeno Shawarma</h4>
+                        <p class="text-gray-400 text-sm mb-4">Spicy arabic wrap with jalapenos.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-brand-gold font-bold text-lg">PKR 250</span>
+                            <button class="bg-gray-800 text-white w-8 h-8 rounded-full hover:bg-brand-gold hover:text-black transition"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="menu-card bg-brand-dark p-6 rounded-xl border border-gray-800 relative">
+                        <div class="absolute top-0 right-0 bg-brand-gold text-brand-dark text-xs font-bold px-3 py-1 rounded-bl-lg">BEST SELLER</div>
+                        <img src="https://images.unsplash.com/photo-1544025162-d76690b68f6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="w-full h-40 object-cover rounded-lg mb-4" alt="Deal">
+                        <h4 class="text-xl font-bold text-white mb-2">Wehshi Deal</h4>
+                        <p class="text-gray-400 text-sm mb-4">BBQ Mix Platter + Fries + Drinks.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-brand-gold font-bold text-lg">PKR 2500</span>
+                            <button class="bg-gray-800 text-white w-8 h-8 rounded-full hover:bg-brand-gold hover:text-black transition"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="menu-card bg-brand-dark p-6 rounded-xl border border-gray-800">
+                        <img src="https://images.unsplash.com/photo-1626804475297-411dbe169c94?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="w-full h-40 object-cover rounded-lg mb-4" alt="Alfredo">
+                        <h4 class="text-xl font-bold text-white mb-2">Alfredo Pasta</h4>
+                        <p class="text-gray-400 text-sm mb-4">White sauce pasta with grilled chicken.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-brand-gold font-bold text-lg">PKR 800</span>
+                            <button class="bg-gray-800 text-white w-8 h-8 rounded-full hover:bg-brand-gold hover:text-black transition"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-10">
+                <a href="#" class="inline-block border border-gray-600 text-white hover:border-brand-gold hover:text-brand-gold px-8 py-3 rounded-full transition duration-300">View Full Menu (PDF)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-20 bg-brand-dark relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-heading font-bold text-white">What Our Customers Say</h2>
+                <div class="w-24 h-1 bg-brand-gold mx-auto mt-4 rounded mb-2"></div>
+                <p class="text-gray-400">Based on Facebook Reviews</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-brand-gray p-8 rounded-2xl relative">
+                    <i class="fas fa-quote-right absolute top-4 right-6 text-4xl text-brand-dark opacity-50"></i>
+                    <div class="flex text-brand-gold mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 italic mb-6">"Best place in Arifwala for families. The Mutton Karahi was outstanding and the staff is very cooperative."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-brand-gold rounded-full flex items-center justify-center text-brand-dark font-bold">A</div>
+                        <div class="ml-3">
+                            <h4 class="font-bold text-white">Ali Hassan</h4>
+                            <span class="text-xs text-gray-500">Local Guide</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-brand-gray p-8 rounded-2xl relative">
+                    <i class="fas fa-quote-right absolute top-4 right-6 text-4xl text-brand-dark opacity-50"></i>
+                    <div class="flex text-brand-gold mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-gray-300 italic mb-6">"Their Zinger Burger and Tea are amazing. Great vibe for hanging out with friends. Highly recommended!"</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-brand-red rounded-full flex items-center justify-center text-white font-bold">M</div>
+                        <div class="ml-3">
+                            <h4 class="font-bold text-white">Muhammad Usman</h4>
+                            <span class="text-xs text-gray-500">Foodie</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-brand-gray p-8 rounded-2xl relative">
+                    <i class="fas fa-quote-right absolute top-4 right-6 text-4xl text-brand-dark opacity-50"></i>
+                    <div class="flex text-brand-gold mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 italic mb-6">"The Koyla Murgh brings back traditional taste. Clean environment and fast service."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">F</div>
+                        <div class="ml-3">
+                            <h4 class="font-bold text-white">Fahad Khan</h4>
+                            <span class="text-xs text-gray-500">Customer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-10">
+                <a href="https://www.facebook.com/SajCafeAndMore/reviews" target="_blank" class="text-brand-gold border-b border-brand-gold pb-1 hover:text-white hover:border-white transition">View More Reviews on Facebook</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-12">
+                <!-- Info -->
+                <div class="lg:w-1/3">
+                    <h2 class="text-4xl font-heading font-bold text-white mb-6">Contact Us</h2>
+                    <p class="text-gray-400 mb-8">Visit us or order online. We are open from 12:00 PM to 1:00 AM.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-brand-gold flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-white font-bold">Address</h4>
+                                <p class="text-gray-400 text-sm">Opposite Haider Family Hospital, Qaboola Road, Arifwala</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-brand-gold flex-shrink-0">
+                                <i class="fas fa-phone-alt text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-white font-bold">Call Us</h4>
+                                <div class="flex flex-col text-gray-400 text-sm">
+                                    <a href="tel:+923222222677" class="hover:text-brand-gold">+92 322 2222677</a>
+                                    <a href="tel:0457835786" class="hover:text-brand-gold">0457-835786 (Landline)</a>
+                                    <a href="tel:+923032228393" class="hover:text-brand-gold">+92 303 2228393</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-brand-gold flex-shrink-0">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-white font-bold">Email</h4>
+                                <a href="mailto:sajcafe123@gmail.com" class="text-gray-400 text-sm hover:text-brand-gold">sajcafe123@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map & Form -->
+                <div class="lg:w-2/3">
+                    <div class="bg-gray-900 p-2 rounded-xl h-full">
+                        <!-- Placeholder for Map - Using an iframe generator approach logic or a static image if preferred, but iframe is standard -->
+                        <iframe class="w-full h-64 md:h-full rounded-lg grayscale hover:grayscale-0 transition duration-500" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3423.958748950882!2d73.0645!3d30.2941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393d4f6c12345678%3A0xabcdef1234567890!2sArifwala!5e0!3m2!1sen!2s!4v1600000000000!5m2!1sen!2s" 
+                        style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        <!-- Note: Coordinates are approximate for Arifwala general area as specific CID wasn't provided, user can replace with exact embed link -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark border-t border-gray-800 pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-10">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <h3 class="text-2xl font-bold text-white">Saj <span class="text-brand-gold">Cafe</span></h3>
+                    <p class="text-gray-500 text-sm mt-2">Delicious Moments, Memorable Tastes.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://www.facebook.com/SajCafeAndMore/" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-brand-gold hover:text-brand-dark transition transform hover:-translate-y-1">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/explore/locations/1023677682/saj-cafe-arifwala/" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-brand-gold hover:text-brand-dark transition transform hover:-translate-y-1">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/discover/saj-cafe-arifwala" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-brand-gold hover:text-brand-dark transition transform hover:-translate-y-1">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="text-center border-t border-gray-800 pt-8">
+                <p class="text-gray-600 text-sm">&copy; 2024 Saj Cafe & More. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Fixed Buttons -->
+    <!-- Scroll to Top -->
+    <button id="scrollToTop" class="fixed bottom-6 right-6 z-40 bg-gray-800 text-white p-3 rounded-full shadow-lg opacity-0 transition-opacity duration-300 hover:bg-brand-gold hover:text-black">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/923222222677" target="_blank" class="fixed bottom-6 left-6 z-50 bg-green-500 text-white px-4 py-3 rounded-full shadow-lg flex items-center gap-2 hover:bg-green-600 transition transform hover:scale-105">
+        <i class="fab fa-whatsapp text-2xl"></i>
+        <span class="font-bold hidden md:inline">Order Now</span>
+    </a>
+
+    <!-- JavaScript logic -->
+    <script>
+        // DOM Elements
+        const navbar = document.getElementById('navbar');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+
+        // Sticky Navbar Effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('sticky-nav', 'py-2');
+                navbar.classList.remove('bg-transparent', 'py-4');
+            } else {
+                navbar.classList.remove('sticky-nav', 'py-2');
+                navbar.classList.add('bg-transparent', 'py-4');
+            }
+
+            // Scroll to Top visibility
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.remove('opacity-0');
+            } else {
+                scrollToTopBtn.classList.add('opacity-0');
+            }
+        });
+
+        // Mobile Menu Toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            if(mobileMenu.classList.contains('hidden')){
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+
+        // Close Mobile Menu on Link Click
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+            });
+        });
+
+        // Scroll to Top Function
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth Scroll for Anchor Links (Polyfill-ish logic)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
