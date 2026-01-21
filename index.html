@@ -1,324 +1,283 @@
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Saj Cafe & More | Best Restaurant in Arifwala">
-    <title>Saj Cafe & More | Official Website</title>
+    <meta name="description" content="Saj Cafe & More | Arifwala's Best Restaurant">
+    <title>Saj Cafe & More | Arifwala</title>
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome Icons -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Custom Colors -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'brand-gold': '#d4af37',
-                        'brand-dark': '#0a0a0a',
+                        'brand-gold': '#FFD700',
+                        'brand-dark': '#0f0f0f',
                         'brand-gray': '#1a1a1a',
-                        'brand-red': '#b91c1c'
                     }
                 }
             }
         }
     </script>
 
-    <!-- Internal CSS -->
     <style>
         body { font-family: 'Poppins', sans-serif; }
         .heading-font { font-family: 'Montserrat', sans-serif; }
         
-        /* Hero Section Background Image */
-        .hero-bg {
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('hero image.jpg');
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('hero image.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
         }
 
-        /* Card Hover Effects */
-        .menu-card { transition: all 0.3s ease; }
-        .menu-card:hover { transform: translateY(-8px); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2); }
+        .menu-card {
+            transition: all 0.3s ease;
+            border: 1px solid #2d2d2d;
+        }
+        .menu-card:hover {
+            transform: translateY(-5px);
+            border-color: #FFD700;
+        }
 
-        /* Filter Button Active State */
-        .filter-btn.active { background-color: #d4af37; color: #000; font-weight: bold; }
-        
-        /* Glass Navbar */
-        .glass-nav { background: rgba(10, 10, 10, 0.9); backdrop-filter: blur(10px); }
+        .category-btn.active {
+            background-color: #FFD700;
+            color: black;
+        }
     </style>
 </head>
-<body class="bg-brand-dark text-gray-200 antialiased">
+<body class="bg-brand-dark text-white">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-nav border-b border-gray-800 py-3">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <!-- Logo -->
-            <a href="#" class="flex items-center gap-2">
-                <img src="saj logo.jpg" alt="Saj Cafe" class="h-12 w-auto rounded-full border-2 border-brand-gold">
-                <span class="text-2xl font-bold heading-font text-white">Saj <span class="text-brand-gold">Cafe</span></span>
+    <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-md border-b border-gray-800">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3">
+                <img src="Saj logo.jpg" alt="Logo" class="h-12 w-12 rounded-full border border-brand-gold">
+                <span class="heading-font text-xl font-bold tracking-tight">SAJ <span class="text-brand-gold">CAFE</span></span>
             </a>
-
-            <!-- Desktop Links -->
-            <div class="hidden md:flex space-x-6 text-sm uppercase tracking-wider font-bold">
+            
+            <div class="hidden md:flex space-x-8 font-medium">
                 <a href="#home" class="hover:text-brand-gold transition">Home</a>
                 <a href="#menu" class="hover:text-brand-gold transition">Menu</a>
                 <a href="#deals" class="hover:text-brand-gold transition">Deals</a>
                 <a href="#contact" class="hover:text-brand-gold transition">Contact</a>
             </div>
 
-            <!-- Action Button -->
-            <a href="https://wa.me/923222222677" target="_blank" class="bg-green-600 text-white px-5 py-2 rounded-full font-bold hover:bg-green-500 transition shadow-lg flex items-center gap-2">
-                <i class="fab fa-whatsapp text-lg"></i> Order Now
+            <a href="https://wa.me/923222222677" target="_blank" class="bg-[#25D366] text-white px-5 py-2 rounded-full font-bold flex items-center gap-2 hover:scale-105 transition">
+                <i class="fab fa-whatsapp"></i> Order Now
             </a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-bg h-screen flex items-center justify-center text-center px-4">
-        <div class="max-w-4xl pt-16">
-            <h2 class="text-brand-gold font-bold text-lg md:text-xl tracking-widest uppercase mb-4">Welcome to Arifwala's Finest</h2>
-            <h1 class="text-5xl md:text-7xl heading-font font-bold text-white mb-6 leading-tight">
-                Saj Cafe & More
-            </h1>
-            <p class="text-gray-300 text-lg mb-8 max-w-xl mx-auto">
-                Discover the ultimate taste of traditional Karahi, mouth-watering Fast Food, and unbeatable Deals.
-            </p>
-            <a href="#menu" class="inline-block bg-brand-gold text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-500 transition shadow-[0_0_15px_rgba(212,175,55,0.5)]">
-                Explore Our Menu
-            </a>
+    <section id="home" class="hero-section h-[90vh] flex items-center justify-center text-center px-4 pt-20">
+        <div class="max-w-4xl">
+            <h1 class="heading-font text-5xl md:text-7xl font-bold mb-6">Experience The Real Taste Of <span class="text-brand-gold">Arifwala</span></h1>
+            <p class="text-gray-300 text-lg md:text-xl mb-10">Authentic Karahi, Smoky Burgers & Exclusive Family Deals</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#menu" class="bg-brand-gold text-black px-8 py-3 rounded-full font-bold hover:bg-yellow-400 transition">View Full Menu</a>
+                <a href="#deals" class="border-2 border-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-black transition">Today's Deals</a>
+            </div>
         </div>
     </section>
 
-    <!-- Menu Section (All 33 Dishes) -->
+    <!-- Menu Section -->
     <section id="menu" class="py-20 bg-brand-dark">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-10">
-                <h2 class="text-4xl heading-font font-bold text-white">Our Complete <span class="text-brand-gold">Menu</span></h2>
+            <div class="text-center mb-12">
+                <h2 class="heading-font text-4xl font-bold">Our <span class="text-brand-gold">Specialties</span></h2>
                 <div class="w-20 h-1 bg-brand-gold mx-auto mt-4"></div>
             </div>
 
-            <!-- Category Filters -->
+            <!-- Categories Buttons -->
             <div class="flex flex-wrap justify-center gap-3 mb-12">
-                <button class="filter-btn active border border-brand-gold px-6 py-2 rounded-full" onclick="filterItems('all')">All Menu</button>
-                <button class="filter-btn border border-brand-gold px-6 py-2 rounded-full hover:bg-brand-gold hover:text-black transition" onclick="filterItems('traditional')">Traditional</button>
-                <button class="filter-btn border border-brand-gold px-6 py-2 rounded-full hover:bg-brand-gold hover:text-black transition" onclick="filterItems('fastfood')">Fast Food</button>
-                <button class="filter-btn border border-brand-gold px-6 py-2 rounded-full hover:bg-brand-gold hover:text-black transition" onclick="filterItems('pizza')">Pizza & Pasta</button>
-                <button class="filter-btn border border-brand-gold px-6 py-2 rounded-full hover:bg-brand-gold hover:text-black transition" onclick="filterItems('deals')">Deals</button>
+                <button onclick="filterMenu('all')" class="category-btn active px-6 py-2 rounded-full border border-brand-gold">All Items</button>
+                <button onclick="filterMenu('karahi')" class="category-btn px-6 py-2 rounded-full border border-brand-gold hover:bg-brand-gold hover:text-black transition">Karahi & BBQ</button>
+                <button onclick="filterMenu('burgers')" class="category-btn px-6 py-2 rounded-full border border-brand-gold hover:bg-brand-gold hover:text-black transition">Burgers & Wraps</button>
+                <button onclick="filterMenu('pizza')" class="category-btn px-6 py-2 rounded-full border border-brand-gold hover:bg-brand-gold hover:text-black transition">Pizza & Pasta</button>
             </div>
 
             <!-- Menu Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-
-                <!-- TRADITIONAL -->
-                <div class="menu-item traditional group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Chicken Karachi.jpg" alt="Chicken Karachi" class="w-full h-48 object-cover group-hover:scale-105 transition duration-500">
-                    <div class="p-4">
-                        <h3 class="text-lg font-bold text-white">Chicken Karachi</h3>
-                    </div>
-                </div>
-                <div class="menu-item traditional group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Fish Platter.jpg" alt="Fish Platter" class="w-full h-48 object-cover group-hover:scale-105 transition duration-500">
-                    <div class="p-4">
-                        <h3 class="text-lg font-bold text-white">Fish Platter</h3>
+            <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Karahi & BBQ -->
+                <div class="menu-item karahi bg-brand-gray rounded-2xl overflow-hidden menu-card">
+                    <img src="chcken karachi.jpg" class="w-full h-52 object-cover" alt="Chicken Karahi">
+                    <div class="p-5">
+                        <h3 class="font-bold text-xl">Chicken Karahi</h3>
+                        <p class="text-gray-400 text-sm mt-1">Desi Style Karahi</p>
                     </div>
                 </div>
 
-                <!-- FAST FOOD (Burgers, Shawarma, Wings, Sandwiches) -->
-                <div class="menu-item fastfood group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Smoke Burger.jpg" alt="Smoke Burger" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-white">Smoke Burger</h3></div>
-                </div>
-                <div class="menu-item fastfood group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Lava Burger.jpg" alt="Lava Burger" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-white">Lava Burger</h3></div>
-                </div>
-                <div class="menu-item fastfood group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Double Decker Burger.jpg" alt="Double Decker Burger" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-white">Double Decker Burger</h3></div>
-                </div>
-                <div class="menu-item fastfood group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Rich Gill Burger.jpg" alt="Rich Gill Burger" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-white">Rich Gill Burger</h3></div>
-                </div>
-                <div class="menu-item fastfood group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Jalapeno Shawarma.jpg" alt="Jalapeno Shawarma" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-white">Jalapeno Shawarma</h3></div>
-                </div>
-                <div class="menu-item fastfood group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Platter Shawarma.jpg" alt="Platter Shawarma" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-white">Platter Shawarma</h3></div>
-                </div>
-                <div class="menu-item fastfood group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Grilled Sandwich.jpg" alt="Grilled Sandwich" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-white">Grilled Sandwich</h3></div>
-                </div>
-                <div class="menu-item fastfood group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Malai Boti Sandwich.jpg" alt="Malai Boti Sandwich" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-white">Malai Boti Sandwich</h3></div>
-                </div>
-                <div class="menu-item fastfood group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="BBQ Wings.jpg" alt="BBQ Wings" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-white">BBQ Wings</h3></div>
-                </div>
-                <div class="menu-item fastfood group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Chicken Wrap.jpg" alt="Chicken Wrap" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-white">Chicken Wrap</h3></div>
-                </div>
-                <div class="menu-item fastfood group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="BBQ Wrap.jpg" alt="BBQ Wrap" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-white">BBQ Wrap</h3></div>
+                <div class="menu-item karahi bg-brand-gray rounded-2xl overflow-hidden menu-card">
+                    <img src="BBQ Wings.jpg" class="w-full h-52 object-cover" alt="BBQ Wings">
+                    <div class="p-5">
+                        <h3 class="font-bold text-xl">BBQ Wings</h3>
+                        <p class="text-gray-400 text-sm mt-1">Hot & Spicy</p>
+                    </div>
                 </div>
 
-                <!-- PIZZA & PASTA -->
-                <div class="menu-item pizza group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Behari Kabab Pizza.jpg" alt="Behari Kabab Pizza" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-white">Behari Kabab Pizza</h3></div>
-                </div>
-                <div class="menu-item pizza group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Chapli Kabab Pizza.jpg" alt="Chapli Kabab Pizza" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-white">Chapli Kabab Pizza</h3></div>
-                </div>
-                <div class="menu-item pizza group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Pizza Lover.jpg" alt="Pizza Lover" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-white">Pizza Lover</h3></div>
-                </div>
-                <div class="menu-item pizza group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Pizza Paratha.jpg" alt="Pizza Paratha" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-white">Pizza Paratha</h3></div>
-                </div>
-                <div class="menu-item pizza group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Pizza Fries.jpg" alt="Pizza Fries" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-white">Pizza Fries</h3></div>
-                </div>
-                <div class="menu-item pizza group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Peri Peri.jpg" alt="Peri Peri" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-white">Peri Peri</h3></div>
-                </div>
-                <div class="menu-item pizza group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Chicken Pasta.jpg" alt="Chicken Pasta" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-white">Chicken Pasta</h3></div>
-                </div>
-                <div class="menu-item pizza group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Alfredo Pasta.jpg" alt="Alfredo Pasta" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-white">Alfredo Pasta</h3></div>
-                </div>
-                <div class="menu-item pizza group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Lasagna Pasta.jpg" alt="Lasagna Pasta" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-white">Lasagna Pasta</h3></div>
+                <div class="menu-item karahi bg-brand-gray rounded-2xl overflow-hidden menu-card">
+                    <img src="fish platter.jpg" class="w-full h-52 object-cover" alt="Fish Platter">
+                    <div class="p-5">
+                        <h3 class="font-bold text-xl">Fish Platter</h3>
+                        <p class="text-gray-400 text-sm mt-1">Special Winter Fish</p>
+                    </div>
                 </div>
 
-                <!-- DEALS -->
-                <div class="menu-item deals group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Wehshi Deal.jpg" alt="Wehshi Deal" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-brand-gold">Wehshi Deal</h3></div>
+                <!-- Burgers & Wraps -->
+                <div class="menu-item burgers bg-brand-gray rounded-2xl overflow-hidden menu-card">
+                    <img src="smoke burger.jpg" class="w-full h-52 object-cover" alt="Smoke Burger">
+                    <div class="p-5">
+                        <h3 class="font-bold text-xl">Smoke Burger</h3>
+                        <p class="text-gray-400 text-sm mt-1">BBQ Smoked Flavor</p>
+                    </div>
                 </div>
-                <div class="menu-item deals group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Mutton Deal.jpg" alt="Mutton Deal" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-brand-gold">Mutton Deal</h3></div>
+
+                <div class="menu-item burgers bg-brand-gray rounded-2xl overflow-hidden menu-card">
+                    <img src="lava burger.jpg" class="w-full h-52 object-cover" alt="Lava Burger">
+                    <div class="p-5">
+                        <h3 class="font-bold text-xl">Lava Burger</h3>
+                        <p class="text-gray-400 text-sm mt-1">Cheese Overloaded</p>
+                    </div>
                 </div>
-                <div class="menu-item deals group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Pasta Deal.jpg" alt="Pasta Deal" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-brand-gold">Pasta Deal</h3></div>
+
+                <div class="menu-item burgers bg-brand-gray rounded-2xl overflow-hidden menu-card">
+                    <img src="Rich gill burger.jpg" class="w-full h-52 object-cover" alt="Rich Gill Burger">
+                    <div class="p-5">
+                        <h3 class="font-bold text-xl">Rich Gill Burger</h3>
+                        <p class="text-gray-400 text-sm mt-1">Premium Taste</p>
+                    </div>
                 </div>
-                <div class="menu-item deals group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Winter Special.jpg" alt="Winter Special" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-brand-gold">Winter Special</h3></div>
+
+                <div class="menu-item burgers bg-brand-gray rounded-2xl overflow-hidden menu-card">
+                    <img src="jalapeno shawarma.jpg" class="w-full h-52 object-cover" alt="Jalapeno Shawarma">
+                    <div class="p-5">
+                        <h3 class="font-bold text-xl">Jalapeno Shawarma</h3>
+                        <p class="text-gray-400 text-sm mt-1">Extra Spicy</p>
+                    </div>
                 </div>
-                <div class="menu-item deals group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Tandoori Deal.jpg" alt="Tandoori Deal" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-brand-gold">Tandoori Deal</h3></div>
+
+                <div class="menu-item burgers bg-brand-gray rounded-2xl overflow-hidden menu-card">
+                    <img src="BBQ Wrap.jpg" class="w-full h-52 object-cover" alt="BBQ Wrap">
+                    <div class="p-5">
+                        <h3 class="font-bold text-xl">BBQ Wrap</h3>
+                        <p class="text-gray-400 text-sm mt-1">Grilled Perfection</p>
+                    </div>
                 </div>
-                <div class="menu-item deals group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Wrap and Pasta Deal.jpg" alt="Wrap and Pasta Deal" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-brand-gold">Wrap & Pasta Deal</h3></div>
+
+                <!-- Pizza & Pasta -->
+                <div class="menu-item pizza bg-brand-gray rounded-2xl overflow-hidden menu-card">
+                    <img src="behari kabab pizza.jpg" class="w-full h-52 object-cover" alt="Behari Kabab Pizza">
+                    <div class="p-5">
+                        <h3 class="font-bold text-xl">Behari Kabab Pizza</h3>
+                        <p class="text-gray-400 text-sm mt-1">Fusion Pizza</p>
+                    </div>
                 </div>
-                <div class="menu-item deals group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Friends Deal.jpg" alt="Friends Deal" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-brand-gold">Friends Deal</h3></div>
+
+                <div class="menu-item pizza bg-brand-gray rounded-2xl overflow-hidden menu-card">
+                    <img src="Alfredo pasta.jpg" class="w-full h-52 object-cover" alt="Alfredo Pasta">
+                    <div class="p-5">
+                        <h3 class="font-bold text-xl">Alfredo Pasta</h3>
+                        <p class="text-gray-400 text-sm mt-1">Creamy White Sauce</p>
+                    </div>
                 </div>
-                <div class="menu-item deals group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Family Deal.jpg" alt="Family Deal" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-brand-gold">Family Deal</h3></div>
+
+                <div class="menu-item pizza bg-brand-gray rounded-2xl overflow-hidden menu-card">
+                    <img src="lasanga pasta.jpg" class="w-full h-52 object-cover" alt="Lasagna">
+                    <div class="p-5">
+                        <h3 class="font-bold text-xl">Lasagna Pasta</h3>
+                        <p class="text-gray-400 text-sm mt-1">Cheesy Layers</p>
+                    </div>
                 </div>
-                <div class="menu-item deals group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Zingo Deal.jpg" alt="Zingo Deal" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-brand-gold">Zingo Deal</h3></div>
-                </div>
-                <div class="menu-item deals group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Jumbo Deal.jpg" alt="Jumbo Deal" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-brand-gold">Jumbo Deal</h3></div>
-                </div>
-                <div class="menu-item deals group menu-card bg-brand-gray rounded-xl overflow-hidden border border-gray-800">
-                    <img src="Yummy Deal.jpg" alt="Yummy Deal" class="w-full h-48 object-cover">
-                    <div class="p-4"><h3 class="text-lg font-bold text-brand-gold">Yummy Deal</h3></div>
+
+                <div class="menu-item pizza bg-brand-gray rounded-2xl overflow-hidden menu-card">
+                    <img src="pizza fires.jpg" class="w-full h-52 object-cover" alt="Pizza Fries">
+                    <div class="p-5">
+                        <h3 class="font-bold text-xl">Pizza Fries</h3>
+                        <p class="text-gray-400 text-sm mt-1">Loaded Fries</p>
+                    </div>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- Footer / Contact -->
-    <footer id="contact" class="bg-black border-t border-gray-800 pt-16 pb-8">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10 text-center md:text-left">
-                <!-- Info -->
-                <div>
-                    <img src="saj logo.jpg" alt="Saj Cafe Logo" class="h-16 mx-auto md:mx-0 mb-4 rounded-full border border-gray-700">
-                    <p class="text-gray-500 mb-4">The ultimate destination for food lovers in Arifwala.</p>
-                    <div class="flex justify-center md:justify-start gap-4">
-                        <a href="#" class="w-10 h-10 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-brand-gold hover:text-black transition"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-brand-gold hover:text-black transition"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-brand-gold hover:text-black transition"><i class="fab fa-tiktok"></i></a>
-                    </div>
+    <!-- Deals Section -->
+    <section id="deals" class="py-20 bg-black">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="heading-font text-4xl font-bold mb-12">Hot <span class="text-brand-gold">Deals</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <div class="bg-brand-gray border border-brand-gold rounded-3xl p-2">
+                    <img src="wehshi deal.jpg" class="w-full h-64 object-cover rounded-2xl mb-4" alt="Wehshi Deal">
+                    <h3 class="text-2xl font-bold">Wehshi Deal</h3>
+                    <p class="text-gray-400 my-4 px-4">Ultimate Hunger Buster</p>
                 </div>
 
-                <!-- Contact -->
-                <div>
-                    <h3 class="text-xl font-bold text-white mb-4">Contact Us</h3>
-                    <p class="text-gray-500 mb-2"><i class="fas fa-map-marker-alt text-brand-gold mr-2"></i> Opposite Haider Family Hospital, Qaboola Road, Arifwala</p>
-                    <p class="text-gray-500 mb-2"><i class="fas fa-phone-alt text-brand-gold mr-2"></i> <a href="tel:+923222222677" class="hover:text-brand-gold">+92 322 2222677</a></p>
-                    <p class="text-gray-500"><i class="fas fa-clock text-brand-gold mr-2"></i> Open Daily: 12:00 PM - 01:00 AM</p>
+                <div class="bg-brand-gray border border-brand-gold rounded-3xl p-2">
+                    <img src="family deal.jpg" class="w-full h-64 object-cover rounded-2xl mb-4" alt="Family Deal">
+                    <h3 class="text-2xl font-bold">Family Deal</h3>
+                    <p class="text-gray-400 my-4 px-4">Perfect for the whole family</p>
                 </div>
-                
-                <!-- Links -->
-                <div>
-                    <h3 class="text-xl font-bold text-white mb-4">Quick Actions</h3>
-                    <a href="https://wa.me/923222222677" target="_blank" class="inline-block bg-green-600 text-white px-6 py-3 rounded-full font-bold hover:bg-green-500 transition shadow-lg w-full md:w-auto text-center">
-                        <i class="fab fa-whatsapp mr-2"></i> Order on WhatsApp
-                    </a>
+
+                <div class="bg-brand-gray border border-brand-gold rounded-3xl p-2">
+                    <img src="zingo deal.jpg" class="w-full h-64 object-cover rounded-2xl mb-4" alt="Zingo Deal">
+                    <h3 class="text-2xl font-bold">Zingo Deal</h3>
+                    <p class="text-gray-400 my-4 px-4">Classic Zinger Lover Deal</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-brand-gray py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div>
+                <img src="Saj logo.jpg" class="h-20 w-20 rounded-full mb-4 mx-auto md:mx-0">
+                <h3 class="text-xl font-bold mb-2">Saj Cafe & More</h3>
+                <p class="text-gray-400">Delicious Moments, Memorable Tastes in Arifwala.</p>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-4">Contact Info</h3>
+                <p class="text-gray-400 mb-2"><i class="fas fa-map-marker-alt text-brand-gold mr-2"></i> Qaboola Road, Opposite Haider Family Hospital, Arifwala</p>
+                <p class="text-gray-400 mb-2"><i class="fas fa-phone text-brand-gold mr-2"></i> +92 322 2222677</p>
+                <p class="text-gray-400"><i class="fas fa-clock text-brand-gold mr-2"></i> 12:00 PM - 01:00 AM</p>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                <div class="flex gap-4">
+                    <a href="https://www.facebook.com/SajCafeAndMore/" class="text-3xl hover:text-brand-gold"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-3xl hover:text-brand-gold"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-3xl hover:text-brand-gold"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
-            
-            <div class="border-t border-gray-800 pt-6 text-center text-sm text-gray-600">
-                &copy; 2024 Saj Cafe & More. All Rights Reserved.
-            </div>
+        </div>
+        <div class="text-center mt-12 text-gray-600 text-sm">
+            &copy; 2024 Saj Cafe & More Arifwala.
         </div>
     </footer>
 
-    <!-- Fixed Floating Buttons -->
-    <a href="https://wa.me/923222222677" target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-3xl hover:bg-green-600 transition hover:scale-110">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- JavaScript for Menu Filtering -->
     <script>
-        function filterItems(category) {
+        function filterMenu(category) {
             const items = document.querySelectorAll('.menu-item');
-            const buttons = document.querySelectorAll('.filter-btn');
+            const btns = document.querySelectorAll('.category-btn');
+            
+            btns.forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
 
-            // Button active state change
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-
-            // Show/Hide items
             items.forEach(item => {
-                if (category === 'all' || item.classList.contains(category)) {
+                if(category === 'all') {
+                    item.style.display = 'block';
+                } else if(item.classList.contains(category)) {
                     item.style.display = 'block';
                 } else {
                     item.style.display = 'none';
