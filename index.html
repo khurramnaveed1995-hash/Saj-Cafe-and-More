@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -57,9 +56,7 @@
         #imageModal { display: flex; animation: fadeIn 0.3s ease; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        .google-map {
-            filter: grayscale(100%) invert(90%) contrast(90%);
-        }
+        .google-map { filter: grayscale(100%) invert(90%) contrast(90%); }
         .google-map:hover { filter: none; transition: 0.5s; }
 
         .form-input {
@@ -72,11 +69,6 @@
             outline: none;
         }
         .form-input:focus { border-color: #FFD700; }
-
-        .review-card {
-            background: #1a1a1a;
-            border-left: 4px solid #FFD700;
-        }
     </style>
 </head>
 <body class="bg-brand-dark text-white">
@@ -90,82 +82,219 @@
             <div class="bg-brand-gray w-full p-6 rounded-b-lg border-x border-b border-gray-700 text-center">
                 <h3 id="modalDishName" class="text-2xl font-bold text-brand-gold mb-4 heading-font">Dish Name</h3>
                 <a id="modalOrderBtn" href="#" target="_blank" class="bg-[#25D366] text-white px-8 py-3 rounded-full font-bold flex items-center justify-center gap-2 hover:scale-105 transition w-fit mx-auto">
-                    <i class="fab fa-whatsapp text-xl"></i> Order This Now
+                    <i class="fab fa-whatsapp text-xl"></i> Order This Item
                 </a>
             </div>
         </div>
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-md border-b border-gray-800">
+    <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-md border-b border-gray-800 text-sm">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center relative">
-            <a href="#" class="flex items-center gap-3">
-                <img src="Saj logo.jpg" alt="Logo" class="h-12 w-12 rounded-full border border-brand-gold">
-                <span class="heading-font text-xl font-bold tracking-tight">SAJ <span class="text-brand-gold">CAFE</span></span>
+            <a href="#" class="flex items-center gap-2">
+                <img src="Saj logo.jpg" alt="Logo" class="h-10 w-10 rounded-full border border-brand-gold">
+                <span class="heading-font text-lg font-bold tracking-tight">SAJ <span class="text-brand-gold">CAFE</span></span>
             </a>
             
             <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-6 font-medium text-sm lg:text-base">
+            <div class="hidden md:flex space-x-4 lg:space-x-6 font-medium">
                 <a href="#home" class="hover:text-brand-gold transition">Home</a>
                 <a href="#menu" class="hover:text-brand-gold transition">Menu</a>
                 <a href="#deals" class="hover:text-brand-gold transition">Deals</a>
                 <a href="#reviews" class="hover:text-brand-gold transition">Reviews</a>
                 <a href="#complain" class="hover:text-brand-gold transition">Complain</a>
                 <a href="#contact" class="hover:text-brand-gold transition">Contact</a>
+                <a href="https://www.instagram.com/explore/locations/1023677682/saj-cafe-arifwala/" target="_blank" class="text-brand-gold hover:text-white transition"><i class="fab fa-instagram"></i></a>
             </div>
 
-            <!-- Mobile Menu Button -->
-            <button onclick="toggleMobileMenu()" class="md:hidden text-white text-2xl focus:outline-none">
-                <i id="menuIcon" class="fas fa-bars"></i>
-            </button>
+            <button onclick="toggleMobileMenu()" class="md:hidden text-white text-2xl"><i id="menuIcon" class="fas fa-bars"></i></button>
 
-            <!-- Mobile Menu Dropdown -->
-            <div id="mobileMenu" class="hidden absolute top-full left-0 w-full bg-black border-b border-gray-800 flex flex-col items-center py-6 space-y-4 font-bold md:hidden">
-                <a href="#home" onclick="toggleMobileMenu()" class="hover:text-brand-gold transition">Home</a>
-                <a href="#menu" onclick="toggleMobileMenu()" class="hover:text-brand-gold transition">Menu</a>
-                <a href="#deals" onclick="toggleMobileMenu()" class="hover:text-brand-gold transition">Deals</a>
-                <a href="#reviews" onclick="toggleMobileMenu()" class="hover:text-brand-gold transition">Reviews</a>
-                <a href="#complain" onclick="toggleMobileMenu()" class="hover:text-brand-gold transition">Complain</a>
-                <a href="#contact" onclick="toggleMobileMenu()" class="hover:text-brand-gold transition">Contact</a>
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden absolute top-full left-0 w-full bg-black border-b border-gray-800 flex flex-col items-center py-6 space-y-4 font-bold md:hidden shadow-2xl">
+                <a href="#home" onclick="toggleMobileMenu()">Home</a>
+                <a href="#menu" onclick="toggleMobileMenu()">Menu</a>
+                <a href="#deals" onclick="toggleMobileMenu()">Deals</a>
+                <a href="#reviews" onclick="toggleMobileMenu()">Reviews</a>
+                <a href="#complain" onclick="toggleMobileMenu()">Complain</a>
+                <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
+                <a href="https://www.instagram.com/explore/locations/1023677682/saj-cafe-arifwala/" target="_blank" class="text-brand-gold">Instagram</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-section h-[90vh] flex items-center justify-center text-center px-4 pt-20">
+    <section id="home" class="hero-section h-[85vh] flex items-center justify-center text-center px-4 pt-20">
         <div class="max-w-4xl">
-            <h1 class="heading-font text-5xl md:text-7xl font-bold mb-6">Experience The Real Taste Of <span class="text-brand-gold">Arifwala</span></h1>
-            <p class="text-gray-300 text-lg md:text-xl mb-10">Authentic Karahi, Smoky Burgers & Exclusive Family Deals</p>
+            <h1 class="heading-font text-5xl md:text-7xl font-bold mb-6">Saj Cafe <span class="text-brand-gold">& More</span></h1>
+            <p class="text-gray-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">Arifwala's finest BBQ, Karahi, and Fast Food spot. Smoky flavors in every bite!</p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="#menu" class="bg-brand-gold text-black px-8 py-3 rounded-full font-bold hover:bg-yellow-400 transition">View Full Menu</a>
-                <a href="#reviews" class="border-2 border-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-black transition">Customer Reviews</a>
+                <a href="#menu" class="bg-brand-gold text-black px-8 py-3 rounded-full font-bold hover:scale-105 transition">Our Menu</a>
+                <a href="#deals" class="bg-white text-black px-8 py-3 rounded-full font-bold hover:scale-105 transition">View Deals</a>
             </div>
         </div>
     </section>
 
-    <!-- Menu Section -->
+    <!-- Menu Section (Dishes Only) -->
     <section id="menu" class="py-20 bg-brand-dark">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="heading-font text-4xl font-bold">Our Full <span class="text-brand-gold">Menu</span></h2>
+                <div class="w-20 h-1 bg-brand-gold mx-auto mt-4 mb-8"></div>
+                
+                <!-- Category Filters -->
+                <div class="flex flex-wrap justify-center gap-2 mb-10">
+                    <button onclick="filterItems('all')" class="cat-btn active px-5 py-2 rounded-full border border-brand-gold text-xs uppercase font-bold tracking-widest">All</button>
+                    <button onclick="filterItems('trad')" class="cat-btn px-5 py-2 rounded-full border border-brand-gold text-xs uppercase font-bold tracking-widest">Traditional</button>
+                    <button onclick="filterItems('fast')" class="cat-btn px-5 py-2 rounded-full border border-brand-gold text-xs uppercase font-bold tracking-widest">Fast Food</button>
+                    <button onclick="filterItems('pizza')" class="cat-btn px-5 py-2 rounded-full border border-brand-gold text-xs uppercase font-bold tracking-widest">Pizza & Pasta</button>
+                </div>
+            </div>
+
+            <div id="full-menu-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                <!-- Items (Mapping all 22 dishes) -->
+                <div class="item trad bg-brand-gray rounded-xl overflow-hidden menu-card">
+                    <img src="chcken karachi.jpg" onclick="openModal(this.src, 'Chicken Karachi')" class="w-full h-40 md:h-52 object-cover cursor-pointer" alt="Chicken Karachi">
+                    <div class="p-3 text-center text-sm md:text-base font-bold">Chicken Karachi</div>
+                </div>
+                <div class="item trad bg-brand-gray rounded-xl overflow-hidden menu-card">
+                    <img src="fish platter.jpg" onclick="openModal(this.src, 'Fish Platter')" class="w-full h-40 md:h-52 object-cover cursor-pointer" alt="Fish Platter">
+                    <div class="p-3 text-center font-bold">Fish Platter</div>
+                </div>
+                <div class="item trad bg-brand-gray rounded-xl overflow-hidden menu-card">
+                    <img src="winter specail.jpg" onclick="openModal(this.src, 'Winter Special')" class="w-full h-40 md:h-52 object-cover cursor-pointer" alt="Winter Special">
+                    <div class="p-3 text-center font-bold">Winter Special</div>
+                </div>
+                <div class="item fast bg-brand-gray rounded-xl overflow-hidden menu-card">
+                    <img src="smoke burger.jpg" onclick="openModal(this.src, 'Smoke Burger')" class="w-full h-40 md:h-52 object-cover cursor-pointer" alt="Smoke Burger">
+                    <div class="p-3 text-center font-bold">Smoke Burger</div>
+                </div>
+                <div class="item fast bg-brand-gray rounded-xl overflow-hidden menu-card">
+                    <img src="lava burger.jpg" onclick="openModal(this.src, 'Lava Burger')" class="w-full h-40 md:h-52 object-cover cursor-pointer" alt="Lava Burger">
+                    <div class="p-3 text-center font-bold">Lava Burger</div>
+                </div>
+                <div class="item fast bg-brand-gray rounded-xl overflow-hidden menu-card">
+                    <img src="Rich gill burger.jpg" onclick="openModal(this.src, 'Rich Gill Burger')" class="w-full h-40 md:h-52 object-cover cursor-pointer" alt="Rich Gill Burger">
+                    <div class="p-3 text-center font-bold">Rich Gill Burger</div>
+                </div>
+                <div class="item fast bg-brand-gray rounded-xl overflow-hidden menu-card">
+                    <img src="double decker burger.jpg" onclick="openModal(this.src, 'Double Decker Burger')" class="w-full h-40 md:h-52 object-cover cursor-pointer" alt="Double Decker">
+                    <div class="p-3 text-center font-bold">Double Decker Burger</div>
+                </div>
+                <div class="item fast bg-brand-gray rounded-xl overflow-hidden menu-card">
+                    <img src="jalapeno shawarma.jpg" onclick="openModal(this.src, 'Jalapeno Shawarma')" class="w-full h-40 md:h-52 object-cover cursor-pointer" alt="Shawarma">
+                    <div class="p-3 text-center font-bold">Jalapeno Shawarma</div>
+                </div>
+                <div class="item fast bg-brand-gray rounded-xl overflow-hidden menu-card">
+                    <img src="BBQ Wings.jpg" onclick="openModal(this.src, 'BBQ Wings')" class="w-full h-40 md:h-52 object-cover cursor-pointer" alt="Wings">
+                    <div class="p-3 text-center font-bold">BBQ Wings</div>
+                </div>
+                <div class="item fast bg-brand-gray rounded-xl overflow-hidden menu-card">
+                    <img src="BBQ Wrap.jpg" onclick="openModal(this.src, 'BBQ Wrap')" class="w-full h-40 md:h-52 object-cover cursor-pointer" alt="BBQ Wrap">
+                    <div class="p-3 text-center font-bold">BBQ Wrap</div>
+                </div>
+                <div class="item fast bg-brand-gray rounded-xl overflow-hidden menu-card">
+                    <img src="chicken wrap.jpg" onclick="openModal(this.src, 'Chicken Wrap')" class="w-full h-40 md:h-52 object-cover cursor-pointer" alt="Chicken Wrap">
+                    <div class="p-3 text-center font-bold">Chicken Wrap</div>
+                </div>
+                <div class="item fast bg-brand-gray rounded-xl overflow-hidden menu-card">
+                    <img src="platter shawarma.jpg" onclick="openModal(this.src, 'Platter Shawarma')" class="w-full h-40 md:h-52 object-cover cursor-pointer" alt="Platter Shawarma">
+                    <div class="p-3 text-center font-bold">Platter Shawarma</div>
+                </div>
+                <div class="item fast bg-brand-gray rounded-xl overflow-hidden menu-card">
+                    <img src="malai boti sandwich.jpg" onclick="openModal(this.src, 'Malai Boti Sandwich')" class="w-full h-40 md:h-52 object-cover cursor-pointer" alt="Sandwich">
+                    <div class="p-3 text-center font-bold">Malai Boti Sandwich</div>
+                </div>
+                <div class="item fast bg-brand-gray rounded-xl overflow-hidden menu-card">
+                    <img src="grilled sandwich.jpg" onclick="openModal(this.src, 'Grilled Sandwich')" class="w-full h-40 md:h-52 object-cover cursor-pointer" alt="Sandwich">
+                    <div class="p-3 text-center font-bold">Grilled Sandwich</div>
+                </div>
+                <div class="item fast bg-brand-gray rounded-xl overflow-hidden menu-card">
+                    <img src="pizza paratha.jpg" onclick="openModal(this.src, 'Pizza Paratha')" class="w-full h-40 md:h-52 object-cover cursor-pointer" alt="Pizza Paratha">
+                    <div class="p-3 text-center font-bold">Pizza Paratha</div>
+                </div>
+                <div class="item pizza bg-brand-gray rounded-xl overflow-hidden menu-card">
+                    <img src="Alfredo pasta.jpg" onclick="openModal(this.src, 'Alfredo Pasta')" class="w-full h-40 md:h-52 object-cover cursor-pointer" alt="Alfredo Pasta">
+                    <div class="p-3 text-center font-bold">Alfredo Pasta</div>
+                </div>
+                <div class="item pizza bg-brand-gray rounded-xl overflow-hidden menu-card">
+                    <img src="chicken pasta.jpg" onclick="openModal(this.src, 'Chicken Pasta')" class="w-full h-40 md:h-52 object-cover cursor-pointer" alt="Chicken Pasta">
+                    <div class="p-3 text-center font-bold">Chicken Pasta</div>
+                </div>
+                <div class="item pizza bg-brand-gray rounded-xl overflow-hidden menu-card">
+                    <img src="lasanga pasta.jpg" onclick="openModal(this.src, 'Lasagna Pasta')" class="w-full h-40 md:h-52 object-cover cursor-pointer" alt="Lasagna">
+                    <div class="p-3 text-center font-bold">Lasagna Pasta</div>
+                </div>
+                <div class="item pizza bg-brand-gray rounded-xl overflow-hidden menu-card">
+                    <img src="pizza fires.jpg" onclick="openModal(this.src, 'Pizza Fries')" class="w-full h-40 md:h-52 object-cover cursor-pointer" alt="Pizza Fries">
+                    <div class="p-3 text-center font-bold">Pizza Fries</div>
+                </div>
+                <div class="item pizza bg-brand-gray rounded-xl overflow-hidden menu-card">
+                    <img src="behari kabab pizza.jpg" onclick="openModal(this.src, 'Behari Kabab Pizza')" class="w-full h-40 md:h-52 object-cover cursor-pointer" alt="Pizza">
+                    <div class="p-3 text-center font-bold">Behari Kabab Pizza</div>
+                </div>
+                <div class="item pizza bg-brand-gray rounded-xl overflow-hidden menu-card">
+                    <img src="chapli kabab pizza.jpg" onclick="openModal(this.src, 'Chapli Kabab Pizza')" class="w-full h-40 md:h-52 object-cover cursor-pointer" alt="Pizza">
+                    <div class="p-3 text-center font-bold">Chapli Kabab Pizza</div>
+                </div>
+                <div class="item pizza bg-brand-gray rounded-xl overflow-hidden menu-card">
+                    <img src="peri peri.jpg" onclick="openModal(this.src, 'Peri Peri')" class="w-full h-40 md:h-52 object-cover cursor-pointer" alt="Peri Peri">
+                    <div class="p-3 text-center font-bold">Peri Peri</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deals Section (Deals Only) -->
+    <section id="deals" class="py-20 bg-black">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="heading-font text-4xl font-bold mb-4">Our <span class="text-brand-gold">Specialties</span></h2>
-            <p class="text-gray-400 mb-12">Click on image to view details & Order</p>
+            <h2 class="heading-font text-4xl font-bold mb-4">Hot <span class="text-brand-gold">Deals</span></h2>
+            <div class="w-20 h-1 bg-brand-gold mx-auto mt-4 mb-12"></div>
             
-            <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Examples (Exact filenames from your repo) -->
-                <div class="menu-item bg-brand-gray rounded-2xl overflow-hidden menu-card">
-                    <img src="chcken karachi.jpg" onclick="openModal(this.src, 'Chicken Karahi')" class="w-full h-52 object-cover cursor-pointer" alt="Karahi">
-                    <div class="p-5 text-center font-bold">Chicken Karahi</div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- All 11 Deals -->
+                <div class="bg-brand-gray border border-brand-gold p-2 rounded-2xl menu-card">
+                    <img src="wehshi deal.jpg" onclick="openModal(this.src, 'Wehshi Deal')" class="w-full h-64 object-cover rounded-xl mb-4 cursor-pointer" alt="Wehshi">
+                    <h3 class="font-bold text-xl pb-3">Wehshi Deal</h3>
                 </div>
-                <div class="menu-item bg-brand-gray rounded-2xl overflow-hidden menu-card">
-                    <img src="smoke burger.jpg" onclick="openModal(this.src, 'Smoke Burger')" class="w-full h-52 object-cover cursor-pointer" alt="Burger">
-                    <div class="p-5 text-center font-bold">Smoke Burger</div>
+                <div class="bg-brand-gray border border-brand-gold p-2 rounded-2xl menu-card">
+                    <img src="mutton deal.jpg" onclick="openModal(this.src, 'Mutton Deal')" class="w-full h-64 object-cover rounded-xl mb-4 cursor-pointer" alt="Mutton">
+                    <h3 class="font-bold text-xl pb-3">Mutton Deal</h3>
                 </div>
-                <div class="menu-item bg-brand-gray rounded-2xl overflow-hidden menu-card">
-                    <img src="Alfredo pasta.jpg" onclick="openModal(this.src, 'Alfredo Pasta')" class="w-full h-52 object-cover cursor-pointer" alt="Pasta">
-                    <div class="p-5 text-center font-bold">Alfredo Pasta</div>
+                <div class="bg-brand-gray border border-brand-gold p-2 rounded-2xl menu-card">
+                    <img src="pasta deal.jpg" onclick="openModal(this.src, 'Pasta Deal')" class="w-full h-64 object-cover rounded-xl mb-4 cursor-pointer" alt="Pasta">
+                    <h3 class="font-bold text-xl pb-3">Pasta Deal</h3>
                 </div>
-                <div class="menu-item bg-brand-gray rounded-2xl overflow-hidden menu-card">
-                    <img src="BBQ Wings.jpg" onclick="openModal(this.src, 'BBQ Wings')" class="w-full h-52 object-cover cursor-pointer" alt="Wings">
-                    <div class="p-5 text-center font-bold">BBQ Wings</div>
+                <div class="bg-brand-gray border border-brand-gold p-2 rounded-2xl menu-card">
+                    <img src="pizza lover.jpg" onclick="openModal(this.src, 'Pizza Lover Deal')" class="w-full h-64 object-cover rounded-xl mb-4 cursor-pointer" alt="Pizza">
+                    <h3 class="font-bold text-xl pb-3">Pizza Lover Deal</h3>
+                </div>
+                <div class="bg-brand-gray border border-brand-gold p-2 rounded-2xl menu-card">
+                    <img src="tandoori deal.jpg" onclick="openModal(this.src, 'Tandoori Deal')" class="w-full h-64 object-cover rounded-xl mb-4 cursor-pointer" alt="Tandoori">
+                    <h3 class="font-bold text-xl pb-3">Tandoori Deal</h3>
+                </div>
+                <div class="bg-brand-gray border border-brand-gold p-2 rounded-2xl menu-card">
+                    <img src="wrap and pasta deal.jpg" onclick="openModal(this.src, 'Wrap and Pasta Deal')" class="w-full h-64 object-cover rounded-xl mb-4 cursor-pointer" alt="Wrap Pasta">
+                    <h3 class="font-bold text-xl pb-3">Wrap & Pasta Deal</h3>
+                </div>
+                <div class="bg-brand-gray border border-brand-gold p-2 rounded-2xl menu-card">
+                    <img src="friends deal.jpg" onclick="openModal(this.src, 'Friends Deal')" class="w-full h-64 object-cover rounded-xl mb-4 cursor-pointer" alt="Friends">
+                    <h3 class="font-bold text-xl pb-3">Friends Deal</h3>
+                </div>
+                <div class="bg-brand-gray border border-brand-gold p-2 rounded-2xl menu-card">
+                    <img src="family deal.jpg" onclick="openModal(this.src, 'Family Deal')" class="w-full h-64 object-cover rounded-xl mb-4 cursor-pointer" alt="Family">
+                    <h3 class="font-bold text-xl pb-3">Family Deal</h3>
+                </div>
+                <div class="bg-brand-gray border border-brand-gold p-2 rounded-2xl menu-card">
+                    <img src="zingo deal.jpg" onclick="openModal(this.src, 'Zingo Deal')" class="w-full h-64 object-cover rounded-xl mb-4 cursor-pointer" alt="Zinger">
+                    <h3 class="font-bold text-xl pb-3">Zingo Deal</h3>
+                </div>
+                <div class="bg-brand-gray border border-brand-gold p-2 rounded-2xl menu-card">
+                    <img src="jumbo deal.jpg" onclick="openModal(this.src, 'Jumbo Deal')" class="w-full h-64 object-cover rounded-xl mb-4 cursor-pointer" alt="Jumbo">
+                    <h3 class="font-bold text-xl pb-3">Jumbo Deal</h3>
+                </div>
+                <div class="bg-brand-gray border border-brand-gold p-2 rounded-2xl menu-card">
+                    <img src="yummy deal.jpg" onclick="openModal(this.src, 'Yummy Deal')" class="w-full h-64 object-cover rounded-xl mb-4 cursor-pointer" alt="Yummy">
+                    <h3 class="font-bold text-xl pb-3">Yummy Deal</h3>
                 </div>
             </div>
         </div>
@@ -173,43 +302,32 @@
 
     <!-- Reviews Section -->
     <section id="reviews" class="py-20 bg-brand-gray">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto px-4 max-w-5xl">
             <div class="text-center mb-12">
                 <h2 class="heading-font text-4xl font-bold">What <span class="text-brand-gold">Customers</span> Say</h2>
-                <p class="text-gray-400 mt-2">Real feedback from our Facebook community</p>
                 <div class="w-20 h-1 bg-brand-gold mx-auto mt-4"></div>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-                <!-- Review 1 -->
-                <div class="review-card p-6 rounded-r-xl shadow-lg">
-                    <div class="flex text-brand-gold mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="italic text-gray-200 mb-4">"sabko lao yahan, milke Khao, khushiyan bharhao"</p>
-                    <h4 class="font-bold text-brand-gold">- Safiy Ur Rehman</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-brand-dark p-6 rounded-xl border-l-4 border-brand-gold">
+                    <p class="italic text-gray-300">"sabko lao yahan, milke Khao, khushiyan bharhao"</p>
+                    <h4 class="mt-4 font-bold text-brand-gold">- Safiy Ur Rehman</h4>
                 </div>
-                <!-- Review 2 -->
-                <div class="review-card p-6 rounded-r-xl shadow-lg border-l-red-500">
-                    <div class="flex text-red-500 mb-2"><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></div>
-                    <p class="italic text-gray-200 mb-4">"Home delivery service bht ghatiya 30 min ka bol k 1.5 ghanty bad v order ni bejha. Home delivery ki service achi kary"</p>
-                    <h4 class="font-bold text-brand-gold">- Bilawal Nadeem</h4>
+                <div class="bg-brand-dark p-6 rounded-xl border-l-4 border-red-500">
+                    <p class="italic text-gray-300">"Home delivery service bht ghatiya. 30 min ka bol k 1.5 ghanty bad v order ni bejha."</p>
+                    <h4 class="mt-4 font-bold text-brand-gold">- Bilawal Nadeem</h4>
                 </div>
-                <!-- Review 3 -->
-                <div class="review-card p-6 rounded-r-xl shadow-lg">
-                    <div class="flex text-brand-gold mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="italic text-gray-200 mb-4">"Very tasty food and excellent service.."</p>
-                    <h4 class="font-bold text-brand-gold">- Sajid Iqbal</h4>
+                <div class="bg-brand-dark p-6 rounded-xl border-l-4 border-brand-gold">
+                    <p class="italic text-gray-300">"Very tasty food and excellent service.."</p>
+                    <h4 class="mt-4 font-bold text-brand-gold">- Sajid Iqbal</h4>
                 </div>
-                <!-- Review 4 -->
-                <div class="review-card p-6 rounded-r-xl shadow-lg border-l-orange-500">
-                    <div class="flex text-orange-500 mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></div>
-                    <p class="italic text-gray-200 mb-4">"Extremely disappointed with the service. We had to wait far too long for our food, and the delay completely ruined the dining experience."</p>
-                    <h4 class="font-bold text-brand-gold">- Muhammad Zeeshan</h4>
+                <div class="bg-brand-dark p-6 rounded-xl border-l-4 border-orange-500">
+                    <p class="italic text-gray-300">"Extremely disappointed with the service. We had to wait far too long for our food."</p>
+                    <h4 class="mt-4 font-bold text-brand-gold">- Muhammad Zeeshan</h4>
                 </div>
             </div>
-
             <div class="text-center mt-12">
-                <a href="https://www.facebook.com/SajCafeAndMore/reviews" target="_blank" class="bg-[#1877F2] text-white px-8 py-3 rounded-full font-bold inline-flex items-center gap-2 hover:bg-blue-700 transition transform hover:scale-105">
-                    <i class="fab fa-facebook-f"></i> Write or View More Reviews on Facebook
+                <a href="https://www.facebook.com/SajCafeAndMore/reviews" target="_blank" class="bg-[#1877F2] text-white px-8 py-3 rounded-full font-bold flex items-center gap-2 justify-center mx-auto w-fit hover:scale-105 transition">
+                    <i class="fab fa-facebook"></i> View All Reviews
                 </a>
             </div>
         </div>
@@ -218,55 +336,41 @@
     <!-- Complain Section -->
     <section id="complain" class="py-20 bg-brand-dark">
         <div class="container mx-auto px-4 max-w-2xl">
-            <div class="text-center mb-10">
-                <h2 class="heading-font text-4xl font-bold">Lodge A <span class="text-brand-gold">Complain</span></h2>
-                <div class="w-20 h-1 bg-brand-gold mx-auto mt-4"></div>
-            </div>
-            
+            <h2 class="heading-font text-4xl font-bold text-center mb-10">Lodge A <span class="text-brand-gold">Complain</span></h2>
             <form onsubmit="sendComplain(event)" class="bg-brand-gray p-8 rounded-3xl border border-gray-800">
-                <div class="mb-5 text-left">
-                    <label class="block text-sm font-bold mb-2 text-brand-gold">Full Name</label>
-                    <input type="text" id="compName" class="form-input" required>
-                </div>
-                <div class="mb-5 text-left">
-                    <label class="block text-sm font-bold mb-2 text-brand-gold">Phone Number</label>
-                    <input type="tel" id="compPhone" class="form-input" required>
-                </div>
-                <div class="mb-6 text-left">
-                    <label class="block text-sm font-bold mb-2 text-brand-gold">Your Complain</label>
-                    <textarea id="compMessage" rows="4" class="form-input" required></textarea>
-                </div>
-                <button type="submit" class="w-full bg-brand-gold text-black font-bold py-3 rounded-lg hover:bg-yellow-400 transition">Submit Complain</button>
+                <div class="mb-5"><label class="block text-sm font-bold mb-2">Full Name</label><input type="text" id="compName" class="form-input" required></div>
+                <div class="mb-5"><label class="block text-sm font-bold mb-2">Phone</label><input type="tel" id="compPhone" class="form-input" required></div>
+                <div class="mb-6"><label class="block text-sm font-bold mb-2">Complain Details</label><textarea id="compMessage" rows="4" class="form-input" required></textarea></div>
+                <button type="submit" class="w-full bg-brand-gold text-black font-bold py-3 rounded-lg">Send Via WhatsApp</button>
             </form>
         </div>
     </section>
 
     <!-- Footer -->
     <footer id="contact" class="bg-brand-gray pt-16 border-t border-gray-800">
-        <div class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-4 gap-10 pb-12 text-center md:text-left">
-            <div>
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12">
+            <div class="text-center md:text-left">
                 <img src="Saj logo.jpg" class="h-20 w-20 rounded-full mb-4 mx-auto md:mx-0 border-2 border-brand-gold">
-                <p class="text-gray-400 text-sm">Best BBQ & Karahi spot in Arifwala.</p>
+                <p class="text-gray-400 text-sm">Best BBQ spot in Arifwala.</p>
             </div>
-            <div>
-                <h3 class="text-xl font-bold mb-4 text-brand-gold">Contact Us</h3>
+            <div class="text-center md:text-left">
+                <h3 class="text-xl font-bold mb-6 text-brand-gold">Contact</h3>
                 <p class="text-gray-400 mb-2 font-bold">+92 322 2222677</p>
-                <p class="text-gray-400 text-sm">Qaboola Road, Arifwala</p>
+                <p class="text-gray-400">Qaboola Road, Arifwala</p>
             </div>
-            <div>
-                <h3 class="text-xl font-bold mb-4 text-brand-gold">Links</h3>
-                <div class="flex flex-col gap-2">
+            <div class="text-center md:text-left">
+                <h3 class="text-xl font-bold mb-6 text-brand-gold">Social</h3>
+                <div class="flex flex-col gap-3">
                     <a href="https://www.facebook.com/SajCafeAndMore/" class="text-gray-400 hover:text-brand-gold">Facebook</a>
+                    <a href="https://www.instagram.com/explore/locations/1023677682/saj-cafe-arifwala/" class="text-gray-400 hover:text-brand-gold">Instagram</a>
                     <a href="https://www.tiktok.com/search?q=saj%20cafe%20arifwala" class="text-gray-400 hover:text-brand-gold">TikTok</a>
                 </div>
             </div>
             <div class="h-48 rounded-xl overflow-hidden">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3424.363675005835!2d73.0638575!3d30.2837266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393d4f40f353664d%3A0xc69622d7d5904d9e!2sSaj%20Cafe%20%26%20More!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" class="google-map"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3424.363675005835!2d73.0638575!3d30.2837266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393d4f40f353664d%3A0xc69622d7d5904d9e!2sSaj%20Cafe%20%26%20More!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
-        <div class="text-center py-6 border-t border-gray-800 text-gray-600 text-sm bg-black">
-            &copy; 2024 Saj Cafe & More Arifwala.
-        </div>
+        <div class="text-center py-6 bg-black text-gray-700 text-xs">&copy; 2024 Saj Cafe & More Arifwala.</div>
     </footer>
 
     <script>
@@ -278,14 +382,22 @@
             icon.classList.toggle('fa-times');
         }
 
+        function filterItems(cat) {
+            const items = document.querySelectorAll('.item');
+            const btns = document.querySelectorAll('.cat-btn');
+            btns.forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            items.forEach(item => {
+                if(cat === 'all' || item.classList.contains(cat)) item.style.display = 'block';
+                else item.style.display = 'none';
+            });
+        }
+
         function openModal(src, dishName) {
             const modal = document.getElementById('imageModal');
-            const fullImg = document.getElementById('fullImage');
-            const modalTitle = document.getElementById('modalDishName');
-            const orderBtn = document.getElementById('modalOrderBtn');
-            fullImg.src = src;
-            modalTitle.innerText = dishName;
-            orderBtn.href = `https://wa.me/923222222677?text=I want to order: *${dishName}*`;
+            document.getElementById('fullImage').src = src;
+            document.getElementById('modalDishName').innerText = dishName;
+            document.getElementById('modalOrderBtn').href = `https://wa.me/923222222677?text=I want to order: *${dishName}*`;
             modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         }
