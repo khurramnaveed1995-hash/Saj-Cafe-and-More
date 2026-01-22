@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -22,7 +21,6 @@
                         'brand-orange': '#f37021',
                         'brand-gold': '#FFD700',
                         'brand-dark': '#0f0f0f',
-                        'brand-bg': '#fcf9f4',
                         'fb-blue': '#1877F2',
                         'insta-pink': '#E4405F',
                         'wa-green': '#25D366',
@@ -34,7 +32,7 @@
     </script>
 
     <style>
-        body { font-family: 'Poppins', sans-serif; background-color: #fcf9f4; color: #1a1a1a; }
+        body { font-family: 'Poppins', sans-serif; background-color: #fdfaf5; color: #1a1a1a; }
         .heading-font { font-family: 'Montserrat', sans-serif; }
         
         .hero-section {
@@ -42,33 +40,31 @@
             background-size: cover; background-position: center; background-attachment: fixed;
         }
 
-        /* Fixed Image Ratio for Proper Alignment */
-        .card-img-container {
-            width: 100%;
-            aspect-ratio: 16 / 10;
-            overflow: hidden;
-            background-color: #f3f3f3;
-        }
-        .card-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
+        /* Card Design like your screenshot */
         .food-card {
             background: white;
             border-radius: 20px;
             overflow: hidden;
             border: 2px solid #f37021;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease;
             display: flex;
             flex-direction: column;
             height: 100%;
         }
-        .food-card:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(243, 112, 33, 0.15); }
+        .food-card:hover { transform: translateY(-8px); shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
-        .price-text { color: #f37021; font-weight: 800; font-size: 1.5rem; }
-        .badge-orange { background: #f37021; color: white; padding: 3px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; }
+        .card-img-container {
+            width: 100%;
+            aspect-ratio: 16 / 12;
+            overflow: hidden;
+            border-bottom: 2px solid #f37021;
+        }
+        .card-img-container img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+
+        .price-text { color: #f37021; font-weight: 800; font-size: 1.4rem; }
+        .badge-tag { background-color: #f37021; color: white; padding: 2px 10px; border-radius: 5px; font-weight: bold; font-size: 0.75rem; text-transform: uppercase; }
 
         .category-btn.active { background-color: #f37021; color: white; border-color: #f37021; }
 
@@ -79,15 +75,15 @@
 </head>
 <body class="overflow-x-hidden">
 
-    <!-- IMAGE MODAL (Ordering Feature) -->
+    <!-- IMAGE MODAL (Order on WhatsApp) -->
     <div id="imageModal" class="fixed inset-0 z-[200] hidden bg-black/95 items-center justify-center p-4 backdrop-blur-md" onclick="closeModal()">
         <button class="absolute top-6 right-6 text-white text-5xl">&times;</button>
         <div class="flex flex-col items-center max-w-xl w-full bg-white rounded-3xl overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
-            <img id="fullImage" src="" class="w-full max-h-[50vh] object-cover">
+            <img id="fullImage" src="" class="w-full max-h-[45vh] object-cover">
             <div class="p-8 text-center w-full">
                 <h3 id="modalDishName" class="text-3xl font-bold mb-2 heading-font text-black uppercase">Name</h3>
                 <p id="modalPrice" class="text-2xl font-bold text-brand-orange mb-6">Price</p>
-                <a id="modalOrderBtn" href="#" target="_blank" class="bg-wa-green text-white px-10 py-4 rounded-full font-bold flex items-center justify-center gap-3 hover:scale-105 transition shadow-lg text-lg">
+                <a id="modalOrderBtn" href="#" target="_blank" class="bg-wa-green text-white px-10 py-4 rounded-full font-bold flex items-center justify-center gap-3 hover:scale-105 transition shadow-lg text-lg uppercase tracking-widest">
                     <i class="fab fa-whatsapp text-2xl"></i> ORDER NOW
                 </a>
             </div>
@@ -95,13 +91,13 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-[100] bg-white border-b border-gray-100 shadow-sm">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center text-xs">
+    <nav class="fixed w-full z-[100] bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <a href="#" class="flex items-center gap-2">
-                <img src="Saj logo.jpg" alt="Saj Logo" class="h-10 w-10 rounded-full border border-brand-orange shadow-sm">
-                <span class="heading-font text-xl font-bold tracking-tighter text-black uppercase">Saj <span class="text-brand-orange">Cafe</span></span>
+                <img src="Saj logo.jpg" alt="Logo" class="h-10 w-10 rounded-full border-2 border-brand-orange">
+                <span class="heading-font text-xl font-bold tracking-tighter text-black uppercase tracking-widest">SAJ <span class="text-brand-orange">CAFE</span></span>
             </a>
-            <div class="hidden md:flex space-x-4 lg:space-x-6 font-bold text-gray-700 uppercase tracking-widest">
+            <div class="hidden md:flex space-x-6 font-bold text-gray-700 text-xs uppercase tracking-widest">
                 <a href="#home" class="hover:text-brand-orange transition">Home</a>
                 <a href="#menu" class="hover:text-brand-orange transition">Menu</a>
                 <a href="#deals" class="hover:text-brand-orange transition">Deals</a>
@@ -109,10 +105,10 @@
                 <a href="#complain" class="hover:text-brand-orange transition">Complain</a>
                 <a href="#contact" class="hover:text-brand-orange transition">Contact</a>
             </div>
-            <button onclick="toggleMobileMenu()" class="md:hidden text-brand-orange text-2xl"><i id="mIcon" class="fas fa-bars"></i></button>
+            <button onclick="toggleMobileMenu()" class="md:hidden text-brand-orange text-3xl"><i id="mIcon" class="fas fa-bars"></i></button>
         </div>
         <!-- Mobile Dropdown -->
-        <div id="mDropdown" class="hidden bg-white border-t border-gray-50 flex flex-col items-center py-6 space-y-4 font-bold md:hidden uppercase text-xs tracking-widest">
+        <div id="mDropdown" class="hidden bg-white border-t flex flex-col items-center py-6 space-y-4 font-bold md:hidden uppercase text-xs tracking-widest">
             <a href="#home" onclick="toggleMobileMenu()">Home</a>
             <a href="#menu" onclick="toggleMobileMenu()">Menu</a>
             <a href="#deals" onclick="toggleMobileMenu()">Deals</a>
@@ -125,106 +121,273 @@
     <!-- Hero -->
     <section id="home" class="hero-section h-[75vh] flex items-center justify-center text-center px-4 pt-20">
         <div class="max-w-4xl">
-            <h1 class="heading-font text-5xl md:text-8xl font-bold mb-6 text-white uppercase tracking-tighter">Saj Cafe <span class="text-brand-gold italic">& More</span></h1>
-            <p class="text-white text-lg md:text-2xl mb-12 font-medium opacity-90 text-uppercase uppercase">Best BBQ, Karahi & Fast Food spot in Arifwala.</p>
+            <h1 class="heading-font text-6xl md:text-8xl font-bold mb-6 text-white uppercase tracking-tighter">Saj Cafe <span class="text-brand-gold italic">& More</span></h1>
+            <p class="text-white text-lg md:text-2xl mb-12 font-medium opacity-90 uppercase">Best BBQ, Karahi & Fast Food in Arifwala.</p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="#menu" class="bg-brand-orange text-white px-10 py-4 rounded-full font-bold shadow-xl hover:scale-105 transition">OUR MENU</a>
-                <a href="#deals" class="bg-white text-black px-10 py-4 rounded-full font-bold shadow-xl hover:scale-105 transition">EXCLUSIVE DEALS</a>
+                <a href="#menu" class="bg-brand-orange text-white px-10 py-4 rounded-full font-bold shadow-xl hover:scale-105 transition">EXPLORE MENU</a>
+                <a href="#deals" class="bg-white text-black px-10 py-4 rounded-full font-bold shadow-xl hover:bg-brand-orange hover:text-white transition">EXCLUSIVE DEALS</a>
             </div>
         </div>
     </section>
 
-    <!-- Menu Section (Dishes) -->
+    <!-- Menu Section -->
     <section id="menu" class="py-20">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="heading-font text-4xl md:text-5xl font-bold uppercase tracking-tight text-black">Our <span class="text-brand-orange">Menu</span></h2>
-                <div class="w-20 h-1 bg-brand-orange mx-auto mt-4 mb-10"></div>
+                <h2 class="heading-font text-5xl font-bold text-black uppercase tracking-tight">Our <span class="text-brand-orange">Menu</span></h2>
+                <div class="w-24 h-1 bg-brand-orange mx-auto mt-6"></div>
                 
-                <div class="flex flex-wrap justify-center gap-2 mb-12">
-                    <button onclick="filterItems('all')" class="category-btn active px-6 py-2 rounded-full border-2 border-brand-orange font-bold text-xs uppercase">All Dishes</button>
-                    <button onclick="filterItems('trad')" class="category-btn px-6 py-2 rounded-full border-2 border-brand-orange font-bold text-xs uppercase">Traditional</button>
-                    <button onclick="filterItems('fast')" class="category-btn px-6 py-2 rounded-full border-2 border-brand-orange font-bold text-xs uppercase">Fast Food</button>
-                    <button onclick="filterItems('pizza')" class="category-btn px-6 py-2 rounded-full border-2 border-brand-orange font-bold text-xs uppercase">Pizza & Pasta</button>
+                <div class="flex flex-wrap justify-center gap-3 mt-12">
+                    <button onclick="filterItems('all')" class="cat-btn active px-8 py-2 rounded-full border-2 border-brand-orange font-bold text-xs uppercase tracking-widest">All</button>
+                    <button onclick="filterItems('trad')" class="cat-btn px-8 py-2 rounded-full border-2 border-brand-orange font-bold text-xs uppercase tracking-widest">Traditional</button>
+                    <button onclick="filterItems('fast')" class="cat-btn px-8 py-2 rounded-full border-2 border-brand-orange font-bold text-xs uppercase tracking-widest">Fast Food</button>
+                    <button onclick="filterItems('pizza')" class="cat-btn px-8 py-2 rounded-full border-2 border-brand-orange font-bold text-xs uppercase tracking-widest">Pizza & Pasta</button>
                 </div>
             </div>
 
             <div id="items-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <!-- Traditional -->
+                <!-- 22 Dishes -->
                 <div class="menu-item trad food-card" onclick="openModal('chcken karachi.jpg', 'Chicken Karachi', 'Rs. 999')">
                     <div class="card-img-container"><img src="chcken karachi.jpg"></div>
                     <div class="p-6 flex-grow flex flex-col">
                         <h3 class="text-xl font-bold mb-1 uppercase">Chicken Karachi</h3>
-                        <p class="text-gray-500 text-xs mb-6 flex-grow">Desi Style Karahi Original Taste</p>
-                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100"><span class="price-text">Rs. 999</span><span class="badge-orange">DISH</span></div>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Desi Style Karahi Original Taste</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 999</span><span class="badge-tag">DISH</span>
+                        </div>
                     </div>
                 </div>
+
                 <div class="menu-item trad food-card" onclick="openModal('fish platter.jpg', 'Fish Platter', 'Rs. 2350')">
                     <div class="card-img-container"><img src="fish platter.jpg"></div>
                     <div class="p-6 flex-grow flex flex-col">
                         <h3 class="text-xl font-bold mb-1 uppercase">Fish Platter</h3>
-                        <p class="text-gray-500 text-xs mb-6 flex-grow">Special Winter Platter</p>
-                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100"><span class="price-text">Rs. 2350</span><span class="badge-orange">DISH</span></div>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Special Winter Platter</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 2350</span><span class="badge-tag">DISH</span>
+                        </div>
                     </div>
                 </div>
+
                 <div class="menu-item trad food-card" onclick="openModal('winter specail.jpg', 'Winter Special', 'Rs. 1450')">
                     <div class="card-img-container"><img src="winter specail.jpg"></div>
                     <div class="p-6 flex-grow flex flex-col">
                         <h3 class="text-xl font-bold mb-1 uppercase">Winter Special</h3>
-                        <p class="text-gray-500 text-xs mb-6 flex-grow">Arifwala Seasonal Choice</p>
-                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100"><span class="price-text">Rs. 1450</span><span class="badge-orange">DISH</span></div>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Arifwala Seasonal Choice</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 1450</span><span class="badge-tag">DISH</span>
+                        </div>
                     </div>
                 </div>
-                <!-- Fast Food -->
+
                 <div class="menu-item fast food-card" onclick="openModal('smoke burger.jpg', 'Smoke Burger', 'Rs. 450')">
                     <div class="card-img-container"><img src="smoke burger.jpg"></div>
                     <div class="p-6 flex-grow flex flex-col">
                         <h3 class="text-xl font-bold mb-1 uppercase">Smoke Burger</h3>
-                        <p class="text-gray-500 text-xs mb-6 flex-grow">BBQ Smoked Patty with Cheese</p>
-                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100"><span class="price-text">Rs. 450</span><span class="badge-orange">DISH</span></div>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">BBQ Smoked Patty with Cheese</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 450</span><span class="badge-tag">DISH</span>
+                        </div>
                     </div>
                 </div>
+
                 <div class="menu-item fast food-card" onclick="openModal('lava burger.jpg', 'Lava Burger', 'Rs. 820')">
                     <div class="card-img-container"><img src="lava burger.jpg"></div>
                     <div class="p-6 flex-grow flex flex-col">
                         <h3 class="text-xl font-bold mb-1 uppercase">Lava Burger</h3>
-                        <p class="text-gray-500 text-xs mb-6 flex-grow">Extra Cheesy Lava Filling</p>
-                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100"><span class="price-text">Rs. 820</span><span class="badge-orange">DISH</span></div>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Extra Cheesy Lava Filling</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 820</span><span class="badge-tag">DISH</span>
+                        </div>
                     </div>
                 </div>
+
                 <div class="menu-item fast food-card" onclick="openModal('double decker burger.jpg', 'Double Decker Burger', 'Rs. 600')">
                     <div class="card-img-container"><img src="double decker burger.jpg"></div>
                     <div class="p-6 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold mb-1 uppercase">Double Decker</h3>
-                        <p class="text-gray-500 text-xs mb-6 flex-grow">Two Layer Giant Burger</p>
-                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100"><span class="price-text">Rs. 600</span><span class="badge-orange">DISH</span></div>
+                        <h3 class="text-xl font-bold mb-1 uppercase">Double Decker Burger</h3>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Two Layer Giant Burger</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 600</span><span class="badge-tag">DISH</span>
+                        </div>
                     </div>
                 </div>
-                <div class="menu-item fast food-card" onclick="openModal('Rich gill burger.jpg', 'Rich Gill Burger', 'Rs. 600')">
+
+                <div class="menu-item fast food-card" onclick="openModal('Rich gill burger.jpg', 'Rich Grill Burger', 'Rs. 600')">
                     <div class="card-img-container"><img src="Rich gill burger.jpg"></div>
                     <div class="p-6 flex-grow flex flex-col">
                         <h3 class="text-xl font-bold mb-1 uppercase">Rich Grill Burger</h3>
-                        <p class="text-gray-500 text-xs mb-6 flex-grow">Signature Grilled Flavor</p>
-                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100"><span class="price-text">Rs. 600</span><span class="badge-orange">DISH</span></div>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Premium Grilled Taste</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 600</span><span class="badge-tag">DISH</span>
+                        </div>
                     </div>
                 </div>
+
                 <div class="menu-item fast food-card" onclick="openModal('jalapeno shawarma.jpg', 'Jalapeno Shawarma', 'Rs. 380')">
                     <div class="card-img-container"><img src="jalapeno shawarma.jpg"></div>
                     <div class="p-6 flex-grow flex flex-col">
                         <h3 class="text-xl font-bold mb-1 uppercase">Jalapeno Shawarma</h3>
-                        <p class="text-gray-500 text-xs mb-6 flex-grow">Spicy Shawarma Wrap</p>
-                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100"><span class="price-text">Rs. 380</span><span class="badge-orange">DISH</span></div>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Spicy Jalapeno Shawarma</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 380</span><span class="badge-tag">DISH</span>
+                        </div>
                     </div>
                 </div>
+
+                <div class="menu-item fast food-card" onclick="openModal('platter shawarma.jpg', 'Platter Shawarma', 'Rs. 580')">
+                    <div class="card-img-container"><img src="platter shawarma.jpg"></div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold mb-1 uppercase">Platter Shawarma</h3>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Open Shawarma Platter</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 580</span><span class="badge-tag">DISH</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item fast food-card" onclick="openModal('BBQ Wings.jpg', 'BBQ Wings', 'Rs. 650')">
+                    <div class="card-img-container"><img src="BBQ Wings.jpg"></div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold mb-1 uppercase">BBQ Wings</h3>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Hot Spicy Grilled Wings</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 650</span><span class="badge-tag">DISH</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item fast food-card" onclick="openModal('BBQ Wrap.jpg', 'BBQ Wrap', 'Rs. 380')">
+                    <div class="card-img-container"><img src="BBQ Wrap.jpg"></div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold mb-1 uppercase">BBQ Wrap</h3>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Smoky Grilled Wrap</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 380</span><span class="badge-tag">DISH</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item fast food-card" onclick="openModal('chicken wrap.jpg', 'Chicken Wrap', 'Rs. 350')">
+                    <div class="card-img-container"><img src="chicken wrap.jpg"></div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold mb-1 uppercase">Chicken Wrap</h3>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Classic Fried Fillet Wrap</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 350</span><span class="badge-tag">DISH</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item fast food-card" onclick="openModal('grilled sandwich.jpg', 'Grilled Sandwich', 'Rs. 550')">
+                    <div class="card-img-container"><img src="grilled sandwich.jpg"></div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold mb-1 uppercase">Grilled Sandwich</h3>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Toasted Club Style</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 550</span><span class="badge-tag">DISH</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item fast food-card" onclick="openModal('malai boti sandwich.jpg', 'Malai Boti Sandwich', 'Rs. 600')">
+                    <div class="card-img-container"><img src="malai boti sandwich.jpg"></div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold mb-1 uppercase">Malai Boti Sandwich</h3>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Creamy Chicken Sandwich</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 600</span><span class="badge-tag">DISH</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item fast food-card" onclick="openModal('pizza paratha.jpg', 'Pizza Paratha', 'Rs. 600')">
+                    <div class="card-img-container"><img src="pizza paratha.jpg"></div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold mb-1 uppercase">Pizza Paratha</h3>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Cheesy Pizza Paratha</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 600</span><span class="badge-tag">DISH</span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="menu-item pizza food-card" onclick="openModal('Alfredo pasta.jpg', 'Alfredo Pasta', 'Rs. 650')">
                     <div class="card-img-container"><img src="Alfredo pasta.jpg"></div>
                     <div class="p-6 flex-grow flex flex-col">
                         <h3 class="text-xl font-bold mb-1 uppercase">Alfredo Pasta</h3>
-                        <p class="text-gray-500 text-xs mb-6 flex-grow">Creamy White Sauce Pasta</p>
-                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100"><span class="price-text">Rs. 650</span><span class="badge-orange">DISH</span></div>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Creamy White Pasta</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 650</span><span class="badge-tag">DISH</span>
+                        </div>
                     </div>
                 </div>
-                <!-- ... other dishes can be added here following same structure ... -->
+
+                <div class="menu-item pizza food-card" onclick="openModal('chicken pasta.jpg', 'Chicken Pasta', 'Rs. 700')">
+                    <div class="card-img-container"><img src="chicken pasta.jpg"></div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold mb-1 uppercase">Chicken Pasta</h3>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Spicy Red Sauce Pasta</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 700</span><span class="badge-tag">DISH</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item pizza food-card" onclick="openModal('lasanga pasta.jpg', 'Lasagna Pasta', 'Rs. 830')">
+                    <div class="card-img-container"><img src="lasanga pasta.jpg"></div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold mb-1 uppercase">Lasagna Pasta</h3>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Layers of Cheese & Meat</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 830</span><span class="badge-tag">DISH</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item pizza food-card" onclick="openModal('pizza fires.jpg', 'Pizza Fries', 'Rs. 580')">
+                    <div class="card-img-container"><img src="pizza fires.jpg"></div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold mb-1 uppercase">Pizza Fries</h3>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Loaded Pizza Style Fries</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 580</span><span class="badge-tag">DISH</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item pizza food-card" onclick="openModal('behari kabab pizza.jpg', 'Behari Kabab Pizza Medium', 'Rs. 1320')">
+                    <div class="card-img-container"><img src="behari kabab pizza.jpg"></div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold mb-1 uppercase">Behari Pizza (M)</h3>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Behari Kabab Topping Pizza</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 1320</span><span class="badge-tag">DISH</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item pizza food-card" onclick="openModal('chapli kabab pizza.jpg', 'Chapli Kabab Pizza Medium', 'Rs. 1320')">
+                    <div class="card-img-container"><img src="chapli kabab pizza.jpg"></div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold mb-1 uppercase">Chapli Pizza (M)</h3>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Peshawari Chapli Style Pizza</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 1320</span><span class="badge-tag">DISH</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item pizza food-card" onclick="openModal('peri peri.jpg', 'Peri Peri Pizza', 'Rs. 650')">
+                    <div class="card-img-container"><img src="peri peri.jpg"></div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold mb-1 uppercase">Peri Peri Pizza</h3>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Spicy Peri Peri Chicken</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 650</span><span class="badge-tag">DISH</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -232,56 +395,162 @@
     <!-- Deals Section -->
     <section id="deals" class="py-20 bg-white">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="heading-font text-4xl md:text-5xl font-bold uppercase tracking-tight text-black">Hot <span class="text-brand-orange">Deals</span></h2>
-            <div class="w-20 h-1 bg-brand-orange mx-auto mt-4 mb-16"></div>
+            <h2 class="heading-font text-5xl font-bold mb-16 uppercase text-black tracking-tight">Hot <span class="text-brand-orange">Deals</span></h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                
                 <div class="food-card" onclick="openModal('wehshi deal.jpg', 'Wehshi Deal', 'Rs. 2499')">
                     <div class="card-img-container"><img src="wehshi deal.jpg"></div>
-                    <div class="p-6 text-left flex-grow flex flex-col">
+                    <div class="p-6 text-left flex-grow">
                         <h3 class="text-xl font-bold mb-1 uppercase">Wehshi Deal</h3>
-                        <p class="text-gray-500 text-xs mb-4 flex-grow">Pizza + Burger + Drink Combo</p>
-                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100"><span class="price-text">Rs. 2499</span><span class="badge-orange bg-black">DEAL</span></div>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Pizza + Burger + Drink</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 2499</span><span class="badge-tag bg-black">DEAL</span>
+                        </div>
                     </div>
                 </div>
-                <div class="food-card" onclick="openModal('zingo deal.jpg', 'Zingo Deal', 'Rs. 1800')">
+
+                <div class="food-card" onclick="openModal('zingo deal.jpg', 'Zingo Deal', 'Rs. 2000')">
                     <div class="card-img-container"><img src="zingo deal.jpg"></div>
-                    <div class="p-6 text-left flex-grow flex flex-col">
+                    <div class="p-6 text-left flex-grow">
                         <h3 class="text-xl font-bold mb-1 uppercase">Zingo Deal</h3>
-                        <p class="text-gray-500 text-xs mb-4 flex-grow">4 Zinger + Fries + 1.5L Drink</p>
-                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100"><span class="price-text">Rs. 1800</span><span class="badge-orange bg-black">DEAL</span></div>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">4 Zinger + Fries + Drink</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 2000</span><span class="badge-tag bg-black">DEAL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="food-card" onclick="openModal('mutton deal.jpg', 'Mutton Deal', 'Rs. 4500')">
+                    <div class="card-img-container"><img src="mutton deal.jpg"></div>
+                    <div class="p-6 text-left flex-grow">
+                        <h3 class="text-xl font-bold mb-1 uppercase">Mutton Deal</h3>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Special Mutton Karahi Platter</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 4500</span><span class="badge-tag bg-black">DEAL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="food-card" onclick="openModal('pasta deal.jpg', 'Pasta Deal', 'Rs. 1350')">
+                    <div class="card-img-container"><img src="pasta deal.jpg"></div>
+                    <div class="p-6 text-left flex-grow">
+                        <h3 class="text-xl font-bold mb-1 uppercase">Pasta Deal</h3>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">2 Pasta Mix & Match</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 1350</span><span class="badge-tag bg-black">DEAL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="food-card" onclick="openModal('pizza lover.jpg', 'Pizza Lover', 'Rs. 2200')">
+                    <div class="card-img-container"><img src="pizza lover.jpg"></div>
+                    <div class="p-6 text-left flex-grow">
+                        <h3 class="text-xl font-bold mb-1 uppercase">Pizza Lover</h3>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">2 Medium Pizza + Drink</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 2200</span><span class="badge-tag bg-black">DEAL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="food-card" onclick="openModal('tandoori deal.jpg', 'Tandoori Deal', 'Rs. 1850')">
+                    <div class="card-img-container"><img src="tandoori deal.jpg"></div>
+                    <div class="p-6 text-left flex-grow">
+                        <h3 class="text-xl font-bold mb-1 uppercase">Tandoori Deal</h3>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Tandoori Mix Pizza Deal</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 1850</span><span class="badge-tag bg-black">DEAL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="food-card" onclick="openModal('wrap and pasta deal.jpg', 'Wrap and Pasta Deal', 'Rs. 1400')">
+                    <div class="card-img-container"><img src="wrap and pasta deal.jpg"></div>
+                    <div class="p-6 text-left flex-grow">
+                        <h3 class="text-xl font-bold mb-1 uppercase">Wrap & Pasta</h3>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Wrap + Pasta Combo</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 1400</span><span class="badge-tag bg-black">DEAL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="food-card" onclick="openModal('friends deal.jpg', 'Friends Deal', 'Rs. 2800')">
+                    <div class="card-img-container"><img src="friends deal.jpg"></div>
+                    <div class="p-6 text-left flex-grow">
+                        <h3 class="text-xl font-bold mb-1 uppercase">Friends Deal</h3>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Party Pack for 4 Persons</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 2800</span><span class="badge-tag bg-black">DEAL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="food-card" onclick="openModal('family deal.jpg', 'Family Deal', 'Rs. 3800')">
+                    <div class="card-img-container"><img src="family deal.jpg"></div>
+                    <div class="p-6 text-left flex-grow">
+                        <h3 class="text-xl font-bold mb-1 uppercase">Family Deal</h3>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Full Feast for 6 Persons</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 3800</span><span class="badge-tag bg-black">DEAL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="food-card" onclick="openModal('jumbo deal.jpg', 'Jumbo Deal', 'Rs. 4999')">
+                    <div class="card-img-container"><img src="jumbo deal.jpg"></div>
+                    <div class="p-6 text-left flex-grow">
+                        <h3 class="text-xl font-bold mb-1 uppercase">Jumbo Deal</h3>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Largest Platter Combo</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 4999</span><span class="badge-tag bg-black">DEAL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="food-card" onclick="openModal('yummy deal.jpg', 'Yummy Deal', 'Rs. 1100')">
+                    <div class="card-img-container"><img src="yummy deal.jpg"></div>
+                    <div class="p-6 text-left flex-grow">
+                        <h3 class="text-xl font-bold mb-1 uppercase">Yummy Deal</h3>
+                        <p class="text-gray-500 text-xs mb-4 flex-grow">Snacks & Soft Drink</p>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                            <span class="price-text">Rs. 1100</span><span class="badge-tag bg-black">DEAL</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Reviews Section -->
-    <section id="reviews" class="py-20 bg-gray-50 text-center">
-        <div class="container mx-auto px-4 max-w-5xl">
-            <h2 class="heading-font text-4xl font-bold mb-12">GUESTS <span class="text-brand-orange">FEEDBACK</span></h2>
+    <!-- Reviews -->
+    <section id="reviews" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-5xl text-center">
+            <h2 class="heading-font text-5xl font-bold mb-12 uppercase">Guests <span class="text-brand-orange">Feedback</span></h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
                 <div class="bg-white p-8 rounded-2xl shadow-sm border-l-8 border-brand-orange">
-                    <p class="italic text-gray-700 text-lg font-medium">"sabko lao yahan, milke Khao, khushiyan bharhao"</p>
+                    <p class="italic text-gray-700 font-medium leading-relaxed">"sabko lao yahan, milke Khao, khushiyan bharhao"</p>
                     <h4 class="mt-4 font-bold text-brand-orange">- Safiy Ur Rehman</h4>
                 </div>
                 <div class="bg-white p-8 rounded-2xl shadow-sm border-l-8 border-red-500">
-                    <p class="italic text-gray-700 text-lg font-medium">"Home delivery service bht ghatiya. Service achi kary."</p>
+                    <p class="italic text-gray-700 font-medium leading-relaxed">"Home delivery service bht ghatiya. 30 min ka bol k 1.5 ghanty bad v order ni bejha. Service achi kary."</p>
                     <h4 class="mt-4 font-bold text-brand-orange">- Bilawal Nadeem</h4>
                 </div>
             </div>
-            <a href="https://www.facebook.com/SajCafeAndMore/reviews" target="_blank" class="mt-10 inline-block bg-fb-blue text-white px-8 py-3 rounded-full font-bold uppercase text-xs tracking-widest shadow-md">View Facebook Reviews</a>
+            <div class="mt-12">
+                <a href="https://www.facebook.com/SajCafeAndMore/reviews" target="_blank" class="bg-fb-blue text-white px-8 py-3 rounded-full font-bold uppercase text-xs tracking-widest shadow-lg inline-block">View All Reviews</a>
+            </div>
         </div>
     </section>
 
     <!-- Complain Form -->
-    <section id="complain" class="py-24">
+    <section id="complain" class="py-20">
         <div class="container mx-auto px-4 max-w-xl text-center">
-            <h2 class="heading-font text-4xl font-bold mb-10 tracking-tight">COMPLAIN <span class="text-brand-orange">FORM</span></h2>
-            <form onsubmit="sendComplain(event)" class="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 text-left">
-                <div class="mb-5"><label class="block font-bold mb-1 text-sm">Full Name</label><input type="text" id="cName" class="w-full bg-gray-50 border border-gray-200 p-3 rounded-xl outline-none" required></div>
-                <div class="mb-5"><label class="block font-bold mb-1 text-sm">WhatsApp Number</label><input type="tel" id="cPhone" class="w-full bg-gray-50 border border-gray-200 p-3 rounded-xl outline-none" required></div>
-                <div class="mb-6"><label class="block font-bold mb-1 text-sm">Details</label><textarea id="cMsg" rows="3" class="w-full bg-gray-50 border border-gray-200 p-3 rounded-xl outline-none" required></textarea></div>
-                <button type="submit" class="w-full bg-brand-orange text-white font-bold py-4 rounded-xl shadow-lg uppercase tracking-widest">Submit via WhatsApp</button>
+            <h2 class="heading-font text-4xl font-bold mb-10 tracking-tight">LODGE A <span class="text-brand-orange">COMPLAIN</span></h2>
+            <form onsubmit="sendComplain(event)" class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 text-left">
+                <div class="mb-5"><label class="block font-bold mb-1 text-sm uppercase tracking-wide">Full Name</label><input type="text" id="cName" class="w-full bg-gray-50 border border-gray-200 p-4 rounded-xl outline-none focus:border-brand-orange" required></div>
+                <div class="mb-5"><label class="block font-bold mb-1 text-sm uppercase tracking-wide">WhatsApp Number</label><input type="tel" id="cPhone" class="w-full bg-gray-50 border border-gray-200 p-4 rounded-xl outline-none focus:border-brand-orange" required></div>
+                <div class="mb-6"><label class="block font-bold mb-1 text-sm uppercase tracking-wide">Details</label><textarea id="cMsg" rows="3" class="w-full bg-gray-50 border border-gray-200 p-4 rounded-xl outline-none focus:border-brand-orange" required></textarea></div>
+                <button type="submit" class="w-full bg-brand-orange text-white font-bold py-4 rounded-xl shadow-lg uppercase tracking-widest hover:scale-105 transition">Submit via WhatsApp</button>
             </form>
         </div>
     </section>
@@ -290,25 +559,25 @@
     <footer id="contact" class="bg-white pt-20 border-t border-gray-100">
         <div class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-4 gap-12 pb-16 text-center lg:text-left">
             <div>
-                <img src="Saj logo.jpg" class="h-16 w-16 rounded-full mb-4 mx-auto lg:mx-0 border border-brand-orange">
-                <p class="text-gray-500 text-sm font-medium">Arifwala's Best BBQ Spot. Original Taste, Quality Food.</p>
+                <img src="Saj logo.jpg" class="h-16 w-16 rounded-full mb-4 mx-auto lg:mx-0 border-2 border-brand-orange">
+                <p class="text-gray-500 text-sm font-medium">Best BBQ Spot in Arifwala. Authentic Taste, Quality Food.</p>
             </div>
             <div>
-                <h3 class="font-bold text-brand-orange mb-4 uppercase text-sm tracking-widest">Contact Us</h3>
+                <h3 class="font-bold text-brand-orange mb-4 uppercase text-xs tracking-widest">Contact Us</h3>
                 <p class="text-gray-700 font-bold text-lg mb-2">+92 322 2222677</p>
                 <a href="mailto:sajcafe123@gmail.com" class="text-gray-600 font-bold flex items-center justify-center lg:justify-start gap-2 hover:text-brand-orange transition">
-                    <i class="fas fa-envelope text-xl"></i> sajcafe123@gmail.com
+                    <i class="fas fa-envelope text-lg"></i> sajcafe123@gmail.com
                 </a>
             </div>
             <div>
-                <h3 class="font-bold text-brand-orange mb-4 uppercase text-sm tracking-widest text-uppercase">Social Media</h3>
+                <h3 class="font-bold text-brand-orange mb-4 uppercase text-xs tracking-widest">Social Media</h3>
                 <div class="flex justify-center lg:justify-start gap-5">
                     <a href="https://www.facebook.com/SajCafeAndMore/" class="text-fb-blue text-2xl hover:scale-110 transition"><i class="fab fa-facebook"></i></a>
                     <a href="https://www.instagram.com/explore/locations/1023677682/saj-cafe-arifwala/" class="text-insta-pink text-2xl hover:scale-110 transition"><i class="fab fa-instagram"></i></a>
                     <a href="https://www.tiktok.com/search?q=saj%20cafe%20arifwala" class="text-tiktok-black text-2xl hover:scale-110 transition"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
-            <div class="h-48 rounded-2xl overflow-hidden shadow-inner border border-gray-200">
+            <div class="h-48 rounded-2xl overflow-hidden shadow-inner border border-gray-100">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3424.363675005835!2d73.0638575!3d30.2837266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393d4f40f353664d%3A0xc69622d7d5904d9e!2sSaj%20Cafe%20%26%20More!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
@@ -326,7 +595,7 @@
 
         function filterItems(cat) {
             const items = document.querySelectorAll('.menu-item');
-            const btns = document.querySelectorAll('.category-btn');
+            const btns = document.querySelectorAll('.cat-btn');
             btns.forEach(b => b.classList.remove('active'));
             event.currentTarget.classList.add('active');
             items.forEach(i => {
